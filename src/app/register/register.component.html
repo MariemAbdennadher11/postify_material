@@ -1,0 +1,50 @@
+<div class="body">
+<div class="card">
+    <h5>Register</h5>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <!-- First Name -->
+      <div class="field" >
+        <mat-form-field appearance="outline" class="mat-form-field">
+          <mat-label>First Name</mat-label>
+          <input matInput placeholder="Your First Name" formControlName="firstName" required />
+        </mat-form-field>
+      </div>
+  
+      <!-- Last Name -->
+      <div class="field">
+        <mat-form-field appearance="outline" class="mat-form-field">
+          <mat-label>Last Name</mat-label>
+          <input matInput placeholder="Your Last Name" formControlName="lastName" required class="input "/>
+        </mat-form-field>
+      </div>
+      <!-- Email -->
+      <div class="field">
+        <mat-form-field appearance="outline" class="mat-form-field">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="pat@example.com" formControlName="email" required />
+        </mat-form-field>
+      </div>
+  
+      <!-- Phone Number -->
+      <div class="field">
+        <mat-form-field appearance="outline" class="mat-form-field">
+          <mat-label>Phone Number</mat-label>
+          <input matInput placeholder="Enter your phone number" formControlName="phone" type="tel"  />
+        </mat-form-field>
+      </div>
+  
+      <!-- Password -->
+      <div class="field">
+        <mat-form-field appearance="outline" class="mat-form-field">
+          <mat-label>Password</mat-label>
+          <input matInput placeholder="Enter your password" formControlName="password" type="password" required />
+        </mat-form-field>
+      </div>
+  
+      <!-- Submit Button -->
+      <div class="field">
+        <button mat-flat-button color="primary" type="submit" [disabled]="registerForm.invalid">Register</button>
+      </div>
+    </form>
+  </div>
+</div>

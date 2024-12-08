@@ -1,0 +1,94 @@
+/* Ensure the body and html elements occupy full height */
+html, body {
+    height: 100%; /* Ensure full height of viewport */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    font-family: Arial, sans-serif; /* Optional: set a global font */
+  }
+  
+  /* General Body Style */
+  .body {
+    align-items: center;
+    background: linear-gradient(to right, #68d7d7, #b0e5e5, #b8d8d8, #b8d6d6, #e9d4e8);
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    min-height: 100vh; /* Ensure body covers full viewport height */
+    padding: 1rem; /* Add some padding for better appearance on small screens */
+    box-sizing: border-box; /* Include padding in height calculations */
+  }
+  
+  /* Card Style */
+  .card {
+    padding: 1rem; /* Generous internal spacing */
+    border: 1px solid #e6e6e6; /* Soft border */
+    box-shadow: 0px 4px 12px rgba(224, 219, 219, 0.1); /* Subtle shadow effect */
+    background-color: white; /* White background for the card */
+    border-radius: 8px; /* Rounded corners */
+    max-width: 500px; /* Limit card width */
+    width: 100%; /* Ensures the card is responsive */
+    margin: 2rem auto; /* Center card horizontally */
+  }
+  
+  /* Card Heading */
+  .card h5 {
+    font-size: 1.75rem; /* Title size */
+    font-weight: bold; /* Bold title */
+    text-align: center; /* Center the title */
+    margin-bottom: 1rem; /* Space below the title */
+    color: #040405;
+  }
+  
+  /* Field Spacing */
+  .field {
+    margin-bottom: 1rem; /* Bottom margin for each field */
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* Input Field Styles */
+  .mat-form-field {
+    width: 100%; /* Full width for form fields */
+  }
+  
+  /* Input text box styles */
+  .mat-input-element {
+    font-size: 1rem; /* Uniform font size for input fields */
+    padding: 10px; /* Padding inside inputs */
+  }
+  
+  /* Material label styles */
+  mat-label {
+    color: #0f0c0c; /* Label color */
+  }
+  
+  /* Error message color */
+  .mat-error {
+    color: red; /* Error message color */
+  }
+  
+  /* Button Styles */
+mat-flat-button {
+    width: 100%; /* Full width for the submit button */
+    padding: 10px; /* Padding for the button */
+    font-size: 1rem; /* Button text size */
+    font-weight: bold; /* Bold text */
+    border-radius: 8px; /* Rounded corners */
+    background-color: #000000 ; /* Primary blue color */
+    color: white; /* Text color */
+    transition: background-color 0.3s ease; /* Button hover transition */
+  }
+  
+  button.mat-flat-button:hover {
+    background-color: #000000; /* Darker blue on hover */
+  }
+  
+  /* Responsive Design for smaller screens */
+  @media (max-width: 600px) {
+    .card {
+      padding: 1.5rem; /* Adjust padding */
+    }
+    .mat-form-field {
+      font-size: 0.9rem; /* Adjust font size for smaller screens */
+    }
+  }
+  

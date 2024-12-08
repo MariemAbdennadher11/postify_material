@@ -1,0 +1,99 @@
+/* Structure principale */
+.landing-page {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh; /* Pleine hauteur */
+    width: 100vw; /* Pleine largeur */
+    padding: 0 5%; /* Espacement latéral */
+    background: linear-gradient(to right,#68d7d7, #b0e5e5, #b8d8d8,#b8d6d6, #e9d4e8);
+    box-sizing: border-box;
+  }
+  
+  /* Section gauche (icône et texte) */
+  .left-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; /* Aligner à gauche */
+    flex: 1; /* Occupe l'espace gauche */
+  }
+  
+  .icon-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .icon {
+    width: 300px; /* Augmente la largeur (anciennement 150px) */
+  height: auto; /* Garde les proportions */
+  margin-bottom: 10px;
+  border-radius: 100%; /* Rend l'image ronde */
+  object-fit: cover; /* Ajuste l'image à l'intérieur */
+  margin-left: 200px;
+  padding: 5px; /* Ajoute un peu d'espace entre l'image et le contour */
+
+
+
+
+  }
+
+  
+  
+  .title {
+    font-size: 6rem; /* Augmente la taille de la police */
+    color: black;
+    text-align: center; /* Centre le texte */
+    margin-bottom: 30px ;
+    font-weight: bold;
+    margin-left: 200px; /* Garde ou ajuste le décalage si nécessaire */
+  }
+  
+  /* Section droite (texte et boutons) */
+  .right-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; /* Aligner les éléments à gauche */
+    flex: 1; /* Occupe l'espace droit */
+  }
+  
+  .headline {
+    font-size: 4rem; 
+    color: black;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 50px; /* Space between headline and btn */
+}
+
+.btn {
+    width: 350px;
+    padding: 20px 30px;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 50px;
+    background-color: black;
+    color: #9ebbea;
+    cursor: pointer;
+    text-align: center;
+    margin-left: 100px;
+    font-weight: bold; /* Make the button text bold */
+    margin-top: 25px; /* Adds space above the button */
+}
+
+.btn:hover {
+    background-color: hsl(213, 21%, 92%); /* Change the color on hover */
+}
+
+p {
+    font-size: 1.5rem;
+    color: black;
+    font-weight: bold;
+    margin-left: 130px;
+    margin-top: 0; /* Remove margin above the paragraph */
+    margin-bottom: 0; /* Remove margin below the paragraph */
+}
+  .right-section .btn {
+    margin-bottom: 50px; /* Ajouter un espace de 20px en bas du premier bouton */
+}
