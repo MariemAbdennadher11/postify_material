@@ -1,0 +1,85 @@
+<mat-toolbar class="toolbar">
+    <div class="page-logo menu-left"></div>
+    <div>
+        <span class="hello-label">Hello ! </span>
+        <button mat-button [matMenuTriggerFor]="menu" class="btn-logout"></button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item class="btnLogoutLabel">
+                Se déconnecter
+                <mat-icon iconPositionEnd aria-hidden="false" aria-label="Déconnexion"
+                    fontIcon="keyboard_tab"></mat-icon>
+            </button>
+        </mat-menu>
+    </div>
+</mat-toolbar>
+
+<mat-drawer-container class="h-100">
+    <!-- Left Sidebar -->
+    <mat-drawer mode="side" opened class="menu-left">
+        <div id="sidebar-menu" class="sidebar-menu">
+            <div class="item-sidebar-menu mb-5">
+                <div class="rect-icon">
+                    <mat-icon aria-hidden="false" aria-label="Accueil" fontIcon="home"></mat-icon>
+                </div>
+                <a routerLink="/patients"><span>Home</span></a>
+            </div>
+
+            <div class="item-sidebar-menu mb-5">
+                <div class="rect-icon">
+                    <mat-icon aria-hidden="false" aria-label="Recherche" fontIcon="search"></mat-icon>
+                </div>
+                <a routerLink="/all-doctor"><span>Recherche</span></a>
+            </div>
+
+            <div class="item-sidebar-menu mb-5">
+                <div class="rect-icon">
+                    <mat-icon aria-hidden="false" aria-label="Notifications" fontIcon="notifications"></mat-icon>
+                </div>
+                <a routerLink="/personnel/paramedical"><span>Notifications</span></a>
+            </div>
+
+            <div class="item-sidebar-menu mb-5">
+                <div class="rect-icon">
+                    <mat-icon aria-hidden="false" aria-label="Profil" fontIcon="person_outline"></mat-icon>
+                </div>
+                <a routerLink="/personnel/technicien"><span>Profile</span></a>
+            </div>
+
+            <div class="item-sidebar-menu">
+                <div class="rect-icon">
+                    <mat-icon aria-hidden="false" aria-label="Ajouter un post" fontIcon="add"></mat-icon>
+                </div>
+                <a><span>Post</span></a>
+            </div>
+        </div>
+    </mat-drawer>
+
+    <!-- Right Sidebar -->
+    <mat-drawer mode="side" opened position="end" class="menu-right">
+        <div id="right-sidebar-menu" class="sidebar-menu-right">
+            <div class="search-bar-container">
+                <!-- Simple search bar in your component -->
+                <div class="search-bar-container">
+                    <input type="text" class="search-bar" placeholder="Search..." [(ngModel)]="searchText" />
+                    <mat-icon class="search-icon">search</mat-icon>
+                    <button (click)="onSearch()" class="search-btn"></button>
+                </div>
+                
+            </div>
+            <div class="item-sidebar-menu mb-5">
+                <div class="rect-icon1">
+                    <mat-icon aria-hidden="false" aria-label="Chat" fontIcon="people"></mat-icon>
+                </div>
+                <span class="ppl">Followers</span>
+            </div>
+
+
+
+        </div>
+    </mat-drawer>
+
+    <!-- Main Content -->
+    <mat-drawer-content class="page-content pb-lg-5">
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container>

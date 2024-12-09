@@ -17,6 +17,16 @@ import { ReactiveFormsModule } from '@angular/forms'; // <-- Import ReactiveForm
 import { FormsModule } from '@angular/forms';
 import { LayoutModule } from './layout/layout.module';
 import { RouterModule } from '@angular/router';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { HomeComponent } from './home/home.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatSortModule } from '@angular/material/sort';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatTableModule } from '@angular/material/table';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
+
+
 
 
 @NgModule({
@@ -24,6 +34,7 @@ import { RouterModule } from '@angular/router';
     AppComponent,
     FirstPageComponent,RegisterComponent,
     LoginComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,9 +42,10 @@ import { RouterModule } from '@angular/router';
     MatIconModule,MatInputModule,
     MatFormFieldModule,MatButtonModule,
     MatDatepickerModule,MatCardModule,MatNativeDateModule,
-    ReactiveFormsModule,FormsModule,
-    LayoutModule,
-    RouterModule
+    ReactiveFormsModule,FormsModule,MatSortModule,
+    LayoutModule,MatSlideToggleModule,MatStepperModule,
+    RouterModule,MatTableModule,MatToolbarModule,
+    MatSidenavModule,MatMenuModule
   
   ],
   providers: [
