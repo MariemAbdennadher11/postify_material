@@ -5,14 +5,12 @@ import { FirstPageComponent } from './first-page/first-page.component';
 import { RegisterComponent } from './register/register.component';
 import { LayoutComponent } from './layout/layout.component';
 import { MainComponent } from './layout/main/main.component';
-import { TopbarComponent } from './layout/topbar/topbar.component';
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   { path:'' , component:FirstPageComponent},
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-<<<<<<< HEAD
   {
     path: 'acceuil', // Parent path for layout
     component: LayoutComponent,
@@ -23,7 +21,6 @@ const routes: Routes = [
     //   },
     // ],
   },
-=======
   { path: 'home', component: HomeComponent },
 
   // {
@@ -37,7 +34,6 @@ const routes: Routes = [
    
   //   ],
   // },
->>>>>>> 7450d64 (homePage)
 ];
 
 @NgModule({
