@@ -23,6 +23,8 @@ export class RegisterComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       phone: ['', [Validators.required, Validators.pattern('^[0-9]{8}$')]], // Adjust phone number pattern as needed
       password: ['', [Validators.required, Validators.minLength(6)]],
+      dateOfBirth: ['', Validators.required], // Nouveau contrôle
+
     });
   }
 
