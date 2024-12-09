@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { FirstPageComponent } from './first-page/first-page.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -16,14 +15,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { RegisterComponent } from './register/register.component';
 import { ReactiveFormsModule } from '@angular/forms'; // <-- Import ReactiveFormsModule
 import { FormsModule } from '@angular/forms';
+import { LayoutModule } from './layout/layout.module';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     FirstPageComponent,RegisterComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +31,9 @@ import { FormsModule } from '@angular/forms';
     MatIconModule,MatInputModule,
     MatFormFieldModule,MatButtonModule,
     MatDatepickerModule,MatCardModule,MatNativeDateModule,
-    ReactiveFormsModule,FormsModule
+    ReactiveFormsModule,FormsModule,
+    LayoutModule,
+    RouterModule
   
   ],
   providers: [
