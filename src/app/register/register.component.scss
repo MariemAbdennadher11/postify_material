@@ -95,4 +95,21 @@ border-color: #040405;  }
 //     width: 100%;
 //   }
   
-  
+.logo3{
+  width: 60px;
+  height: 60px;
+  margin-left:220px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease; /* Transition pour un effet fluide */
+
+}
+.logo3:hover {
+  box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.821); /* Effet de brillance */
+  transform: scale(1.1); /* Agrandit légèrement l'image */
+}
+
+.aa {
+  font-size: 2rem; /* Title size */
+  text-align: center; /* Center the title */
+  margin-top: 0.5rem; /* Réduire l'espace au-dessus */
+  color: #040405;
+}
