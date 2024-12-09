@@ -15,6 +15,7 @@ export class HomeComponent {
   // username
 
   isLoginPage: boolean = false;
+username: any;
 
   constructor(private router : Router){
     //this.isLogged = this.authentiticationService.checkIfLoggedIn()
@@ -41,6 +42,16 @@ export class HomeComponent {
   onSearch() {
     console.log('Searching for:', this.searchText);
     // You can add logic to handle the search functionality here
+  }
+  logout(): void {
+    // Clear the authentication token from storage
+    localStorage.removeItem('authToken');
+
+    // Optional: Notify the server if necessary
+    // fetch('/api/logout', { method: 'POST', credentials: 'include' });
+
+    // Redirect the user to the login page
+    this.router.navigate(['/']);
   }
 }
 

@@ -10,7 +10,7 @@
     height: 60px;
     z-index: 111111;
     background: #fff;
-    box-shadow: 0 2px 5px 0 rgba(206, 201, 201, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+     box-shadow: 0 2px 5px 0 rgba(244, 236, 236, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
 /* Menu left (sidebar) */
@@ -22,6 +22,7 @@
     top: 0; /* Align at the top */
     border-radius: 0; /* Remove rounding from the sidebar */
 }
+
 
 /* Page content */
 .page-content {
@@ -97,13 +98,19 @@
     display: flex;
     flex-direction: column;
     margin-top: 80px;
+    border-radius: 0 !important; /* Explicitly remove rounding */
 }
 
 /* Right Sidebar */
 .menu-right {
     width: 250px; /* Adjust size as needed */
-    background:rgb(24, 24, 24);
-    height: 100%; /* Ensure it fills the full height of the page */
+    background: rgb(24, 24, 24);
+    height: 100vh; /* Ensure it fills the full height of the page */
+    border-radius: 0 !important; /* Explicitly remove rounding */
+    position: absolute; /* Set it to absolute positioning */
+    top: 0; /* Align it to the top */
+    right: 0; /* Align it to the right */
+
 }
 /* Toolbar button (logout) */
 .btn-logout {
@@ -214,4 +221,42 @@
     left: 20px;
     padding: 5px;
   }
+  .logout-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 30px;
+    background: transparent;
+    width: 80%;
+    margin-left:15px;
+    height: 40px; /* Ensure enough height for the icon */
+    margin-top: 100px;
+}
 
+.logout-container:hover {
+    box-shadow: 0 0 10px 5px rgba(39, 38, 38, 0.821);
+    transform: scale(1.05);
+    position: relative; /* Set this for the parent container */
+
+}
+
+.user-icon {
+    font-size: 40px; /* Increase the font size to make the icon bigger */
+    color: rgb(255, 255, 255);
+    margin-right: 15px;
+    width: 40px; /* Make sure the icon's width matches the size */
+    height: 40px; /* Set a fixed height to prevent cutting */
+    line-height: 40px; /* Align the icon properly within the container */
+}
+
+.username-text {
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    font-weight: bold;
+}
+.logout-container .username-text {
+    color: #ffffff !important; /* Change this to the color you want */
+    font-size: 20px;
+    font-weight: bold;
+}

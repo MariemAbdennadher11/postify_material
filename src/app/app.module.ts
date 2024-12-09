@@ -25,6 +25,10 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
+import { ProfileComponent } from './profile/profile.component';
+import { RechercheComponent } from './recherche/recherche.component';
+import { NotificationComponent } from './notification/notification.component';
+import { AddPostDialogComponent } from './add-post-dialog/add-post-dialog.component';
 
 
 
@@ -35,6 +39,10 @@ import { MatMenuModule } from '@angular/material/menu';
     FirstPageComponent,RegisterComponent,
     LoginComponent,
     HomeComponent,
+    ProfileComponent,
+    RechercheComponent,
+    NotificationComponent,
+    AddPostDialogComponent,
   ],
   imports: [
     BrowserModule,

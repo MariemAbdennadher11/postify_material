@@ -1,15 +1,7 @@
 <mat-toolbar class="toolbar">
     <div class="page-logo menu-left"></div>
     <div>
-        <span class="hello-label">Hello ! </span>
-        <button mat-button [matMenuTriggerFor]="menu" class="btn-logout"></button>
-        <mat-menu #menu="matMenu">
-            <button mat-menu-item class="btnLogoutLabel">
-                Se déconnecter
-                <mat-icon iconPositionEnd aria-hidden="false" aria-label="Déconnexion"
-                    fontIcon="keyboard_tab"></mat-icon>
-            </button>
-        </mat-menu>
+        <span class="hello-label"></span>
     </div>
 </mat-toolbar>
 
@@ -21,35 +13,49 @@
                 <div class="rect-icon">
                     <mat-icon aria-hidden="false" aria-label="Accueil" fontIcon="home"></mat-icon>
                 </div>
-                <a routerLink="/patients"><span>Home</span></a>
+                <a routerLink="/home"><span>Home</span></a>
             </div>
 
             <div class="item-sidebar-menu mb-5">
                 <div class="rect-icon">
                     <mat-icon aria-hidden="false" aria-label="Recherche" fontIcon="search"></mat-icon>
                 </div>
-                <a routerLink="/all-doctor"><span>Recherche</span></a>
+                <a routerLink="search"><span>Recherche</span></a>
             </div>
 
             <div class="item-sidebar-menu mb-5">
                 <div class="rect-icon">
                     <mat-icon aria-hidden="false" aria-label="Notifications" fontIcon="notifications"></mat-icon>
                 </div>
-                <a routerLink="/personnel/paramedical"><span>Notifications</span></a>
+                <a routerLink="notif"><span>Notifications</span></a>
             </div>
 
             <div class="item-sidebar-menu mb-5">
                 <div class="rect-icon">
                     <mat-icon aria-hidden="false" aria-label="Profil" fontIcon="person_outline"></mat-icon>
                 </div>
-                <a routerLink="/personnel/technicien"><span>Profile</span></a>
+                <a routerLink="profile"><span>Profile</span></a>
             </div>
 
             <div class="item-sidebar-menu">
                 <div class="rect-icon">
                     <mat-icon aria-hidden="false" aria-label="Ajouter un post" fontIcon="add"></mat-icon>
                 </div>
-                <a><span>Post</span></a>
+                <a routerLink="post"><span>Post</span></a>
+            </div>
+            
+            <div [matMenuTriggerFor]="menu" class="logout-container">
+                <!-- Icône utilisateur -->
+                <mat-icon class="user-icon">account_circle</mat-icon>
+                <span class="username-text">{{ username }}aaa</span>
+            
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="logout()" class="btnLogoutLabel">
+                        Logout
+                        <mat-icon iconPositionEnd aria-hidden="false" aria-label="Déconnexion"
+                            fontIcon="keyboard_tab"></mat-icon>
+                    </button>
+                </mat-menu>
             </div>
         </div>
     </mat-drawer>
@@ -64,7 +70,7 @@
                     <mat-icon class="search-icon">search</mat-icon>
                     <button (click)="onSearch()" class="search-btn"></button>
                 </div>
-                
+
             </div>
             <div class="item-sidebar-menu mb-5">
                 <div class="rect-icon1">
@@ -72,8 +78,6 @@
                 </div>
                 <span class="ppl">Followers</span>
             </div>
-
-
 
         </div>
     </mat-drawer>
