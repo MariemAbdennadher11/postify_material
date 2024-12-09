@@ -13,12 +13,12 @@ const routes: Routes = [
   {
     path: 'acceuil', // Parent path for layout
     component: LayoutComponent,
-    children: [
-      {
-        path: '', // Default child route
-        component: MainComponent,
-      },
-    ],
+    // children: [
+    //   {
+    //     path: '', // Default child route
+    //     component: MainComponent,
+    //   },
+    // ],
   },
 ];
 
