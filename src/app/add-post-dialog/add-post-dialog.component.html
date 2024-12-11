@@ -1,3 +1,67 @@
-<div class="m-4">
-<mat-card></mat-card>
+<h2 mat-dialog-title class="dialog-header">
+  <span class="close-button" mat-dialog-close>×</span>
+</h2>
+<mat-dialog-content class="dialog-content">
+  <div class="user-info">
+    <img src="assets/images/image.jpeg" class="avatar" />
+    <div 
+      class="editable-content" 
+      contenteditable="true" 
+      (input)="checkContent()" 
+      [attr.data-placeholder]="!content.trim() ? 'What\'s on your Mind?!' : ''">
+    </div>
+  </div>
+  <div class="reply-settings" (click)="toggleReplySettings()">
+    <mat-icon>public</mat-icon>
+    <span>{{ replySettings }}</span>
+  </div>
+</mat-dialog-content>
+
+<!-- Image Preview Section -->
+<!-- Image Preview Section -->
+<div *ngIf="imagePreviews.length > 0" class="image-preview">
+    <div *ngFor="let preview of imagePreviews; let i = index" class="image-item">
+      <div class="image-container">
+        <img [src]="preview" alt="Selected Image" />
+        <!-- Edit button -->
+        <!-- <button class="edit-button">Edit</button> -->
+        <!-- Delete button -->
+        <button class="delete-button" (click)="removeImage(i)">×</button>
+      </div>
+    </div>
+  </div>
+
+<div class="toolbar">
+  <!-- Icons on the left -->
+  <div class="toolbar-icons">
+    <button class="toolbar-button" (click)="triggerFileUpload()">
+      <mat-icon>image</mat-icon>
+    </button>
+    <input
+      type="file"
+      #fileInput
+      (change)="onFilesSelected($event)"
+      accept="image/*"
+      multiple
+      style="display: none;"
+    />
+    <button class="toolbar-button">
+      <mat-icon>gif</mat-icon>
+    </button>
+    <button class="toolbar-button">
+      <mat-icon>sentiment_satisfied_alt</mat-icon>
+    </button>
+    <button class="toolbar-button">
+      <mat-icon>event</mat-icon>
+    </button>
+    <button class="toolbar-button">
+      <mat-icon>location_on</mat-icon>
+    </button>
+  </div>
+
+  <!-- Buttons on the right -->
+  <div class="action-buttons">
+    <button mat-button class="cancel-button" mat-dialog-close>Cancel</button>
+    <button mat-raised-button color="primary" class="post-button" [disabled]="!content.trim()">Post</button>
+  </div>
 </div>

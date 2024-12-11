@@ -29,7 +29,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { RechercheComponent } from './recherche/recherche.component';
 import { NotificationComponent } from './notification/notification.component';
 import { AddPostDialogComponent } from './add-post-dialog/add-post-dialog.component';
-
+import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 
 
 
@@ -53,7 +53,7 @@ import { AddPostDialogComponent } from './add-post-dialog/add-post-dialog.compon
     ReactiveFormsModule,FormsModule,MatSortModule,
     LayoutModule,MatSlideToggleModule,MatStepperModule,
     RouterModule,MatTableModule,MatToolbarModule,
-    MatSidenavModule,MatMenuModule
+    MatSidenavModule,MatMenuModule, MatDialogModule
   
   ],
   providers: [

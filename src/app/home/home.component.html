@@ -37,12 +37,13 @@
                 <a routerLink="profile"><span>Profile</span></a>
             </div>
 
-            <div class="item-sidebar-menu">
-                <div class="rect-icon">
+            <div class="item-sidebar-menu" (click)="openDialog()">
+                <div class="rect-icon" >
                     <mat-icon aria-hidden="false" aria-label="Ajouter un post" fontIcon="add"></mat-icon>
                 </div>
-                <a routerLink="post"><span>Post</span></a>
+                <a  ><span>Post</span></a>
             </div>
+
             
             <div [matMenuTriggerFor]="menu" class="logout-container">
                 <!-- Icône utilisateur -->

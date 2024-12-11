@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { AddPostDialogComponent } from '../add-post-dialog/add-post-dialog.component';
 
 @Component({
   selector: 'app-home',
@@ -8,6 +10,7 @@ import { Router } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
+
 export class HomeComponent {
   title = 'app-hemodialyse';
   isLogged = false
@@ -53,5 +56,19 @@ username: any;
     // Redirect the user to the login page
     this.router.navigate(['/']);
   }
+  readonly dialog = inject(MatDialog);
+
+  openDialog() :void{
+    const dialogRef = this.dialog.open(AddPostDialogComponent
+      ,{
+        width: '500px', 
+      }
+    );
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
 }
 
