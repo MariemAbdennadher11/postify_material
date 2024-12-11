@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   standalone: false,
-  
+
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -15,25 +15,24 @@ export class HomeComponent {
   // username
 
   isLoginPage: boolean = false;
-username: any;
+  username: any;
 
-  constructor(private router : Router){
+  constructor(private router: Router) {
     //this.isLogged = this.authentiticationService.checkIfLoggedIn()
     // this.username = localStorage.getItem('username')?.slice(0,2).toUpperCase()
   }
-  
+
   ngOnInit() {
   }
 
   ngDoCheck(): void {
     let currentUrl = this.router.url;
 
-    if (currentUrl =='/login' || currentUrl =='/register')
-    {
+    if (currentUrl == '/login' || currentUrl == '/register') {
       this.isLoginPage = true;
 
-    }else {
-        this.isLoginPage = false;
+    } else {
+      this.isLoginPage = false;
     }
 
   }

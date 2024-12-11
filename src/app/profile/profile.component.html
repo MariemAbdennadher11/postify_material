@@ -1,1 +1,74 @@
-<p>profile works!</p>
+<mat-toolbar class="toolbar">
+    <div class="page-logo menu-left"></div>
+    <div>
+        <span class="hello-label">Bienvenue, John Doe</span>
+    </div>
+
+</mat-toolbar>
+
+<mat-drawer-container class="h-100">
+    <!-- Left Sidebar -->
+    <mat-drawer mode="side" opened class="menu-left">
+        <div id="sidebar-menu" class="sidebar-menu">
+            <div class="item-sidebar-menu mb-5">
+                <div class="rect-icon">
+                    <mat-icon aria-hidden="false" aria-label="Accueil" fontIcon="home"></mat-icon>
+                </div>
+                <a routerLink="/home"><span>Home</span></a>
+            </div>
+
+            <div class="item-sidebar-menu mb-5">
+                <div class="rect-icon">
+                    <mat-icon aria-hidden="false" aria-label="Recherche" fontIcon="search"></mat-icon>
+                </div>
+                <a routerLink="/search"><span>Recherche</span></a>
+            </div>
+
+            <div class="item-sidebar-menu mb-5">
+                <div class="rect-icon">
+                    <mat-icon aria-hidden="false" aria-label="Notifications" fontIcon="notifications"></mat-icon>
+                </div>
+                <a routerLink="/notif"><span>Notifications</span></a>
+            </div>
+
+            <div class="item-sidebar-menu mb-5">
+                <div class="rect-icon">
+                    <mat-icon aria-hidden="false" aria-label="Profil" fontIcon="person_outline"></mat-icon>
+                </div>
+                <a routerLink="/profile"><span>Profile</span></a>
+            </div>
+
+            <div class="item-sidebar-menu">
+                <div class="rect-icon">
+                    <mat-icon aria-hidden="false" aria-label="Ajouter un post" fontIcon="add"></mat-icon>
+                </div>
+                <a routerLink="/post"><span>Post</span></a>
+            </div>
+        </div>
+    </mat-drawer>
+
+    <!-- Main content area -->
+    <div class="content">
+        <div class="profile-container">
+            <div class="profile-header">
+                <img src="assets/images/logo1.png" alt="Profile Picture" class="profile-picture" />
+                <h1 class="username">John Doe</h1>
+
+            </div>
+
+            <div class="profile-stats">
+                <div class="stat">
+                    <h2 class="h">45</h2>
+                    <p class="p1">Followers</p>
+                </div>
+                <div class="stat">
+                    <h2 class="hh">120</h2>
+                    <p class="p2">following</p>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</mat-drawer-container>

@@ -23,10 +23,7 @@ const routes: Routes = [
         path: 'notif',
         component: NotificationComponent
       },
-      {
-        path: 'profile',
-        component: ProfileComponent
-      },
+
       {
         path: 'search',
         component: RechercheComponent
@@ -37,6 +34,7 @@ const routes: Routes = [
   { path: '', component: FirstPageComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'profile', component: ProfileComponent },
 
 
 ];

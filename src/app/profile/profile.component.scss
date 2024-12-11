@@ -1,0 +1,263 @@
+.profile-container {
+
+    margin: 50px;
+    margin-top: 100px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header {
+    margin-bottom: 100px;
+    margin-left: 20px;
+
+}
+
+.profile-picture {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.username {
+    font-size: 24px;
+    font-weight: bold;
+    margin: -100px 150px;
+}
+
+.profile-stats {
+    display: flex;
+
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.stat {
+    text-align: center;
+
+}
+
+.h {
+    margin-left: 1100px;
+}
+
+.p1 {
+    font-size: 22px;
+    margin-left: 1100px;
+    color: #000000;
+}
+
+
+
+.hh {
+    margin-left: 50px;
+}
+
+.p2 {
+    font-size: 22px;
+    margin-left: 50px;
+    color: #000000;
+}
+
+
+
+/* Ensure mat-drawer-container takes full height */
+.mat-drawer-container {
+    height: 100vh;
+    /* Full viewport height */
+}
+
+/* Toolbar */
+.toolbar {
+    padding: 0;
+    position: absolute;
+    height: 60px;
+    z-index: 111111;
+    background: #fff;
+    box-shadow: 0 2px 5px 0 rgba(244, 236, 236, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+/* Menu left (sidebar) */
+.menu-left {
+    background: rgb(24, 24, 24);
+    width: 329px;
+    height: 100%;
+    /* Sidebar height fills the entire screen */
+    position: absolute;
+    /* Remove fixed positioning to ensure proper flow */
+    top: 0;
+    /* Align at the top */
+    border-radius: 0;
+    /* Remove rounding from the sidebar */
+}
+
+
+/* Page content */
+.page-content {
+    margin-left: 329px;
+    /* Ensure content doesn't overlap the sidebar */
+    padding: 25px 20px 10px;
+    margin-top: 60px;
+    /* Account for toolbar height */
+    height: calc(100vh - 60px);
+    /* Take the full height minus toolbar */
+    overflow-y: auto;
+    /* Allow scroll within the content */
+}
+
+/* Sidebar menu items */
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    margin-top: 150px;
+    /* Ensure sidebar content starts after the toolbar */
+}
+
+.sidebar-menu a {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    color: #FFFFFF;
+    text-decoration: none;
+    left: 60px;
+    position: relative;
+    margin-bottom: 50px;
+
+}
+
+/* Sidebar menu item */
+.item-sidebar-menu {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    position: relative;
+    color: #FFFFFF;
+    border-radius: 0;
+    /* Remove rounding from individual menu items */
+}
+
+
+.rect-icon {
+    width: 25px;
+    height: 25px;
+    //background: rgba(0, 198, 198, 0.5);
+    //opacity: 0.5;
+    border-radius: 3px;
+    position: absolute;
+    left: 20px;
+    padding: 5px;
+    margin-bottom: 50px;
+}
+
+/* Sidebar active item */
+.item-sidebar-menu.active {
+    background-color: red;
+}
+
+
+.sidebar-menu-right {
+    display: flex;
+    flex-direction: column;
+    margin-top: 80px;
+    border-radius: 0 !important;
+    /* Explicitly remove rounding */
+}
+
+/* Right Sidebar */
+.menu-right {
+    width: 250px;
+    /* Adjust size as needed */
+    background: rgb(24, 24, 24);
+    height: 100vh;
+    /* Ensure it fills the full height of the page */
+    border-radius: 0 !important;
+    /* Explicitly remove rounding */
+    position: absolute;
+    /* Set it to absolute positioning */
+    top: 0;
+    /* Align it to the top */
+    right: 0;
+    /* Align it to the right */
+
+}
+
+/* Toolbar button (logout) */
+.btn-logout {
+    padding: 0;
+    position: absolute;
+    right: 15px;
+    bottom: 12px;
+    background: #131313;
+    font-size: 15px;
+    width: 35px;
+    height: 35px;
+    min-width: 35px !important;
+    color: #fff !important;
+    border-radius: 50%;
+    /* This one will remain round for the logout button */
+}
+
+/* Hello label */
+.hello-label {
+    position: absolute;
+    right: 80px;
+    color: #141515;
+    margin-right: 1090px;
+}
+
+/* Adjustments for small screens */
+@media only screen and (max-width: 1560px) {
+    .page-content {
+        position: relative;
+        display: initial;
+        height: 100%;
+        overflow: initial;
+        right: 15%;
+        bottom: 15%;
+        box-sizing: border-box;
+    }
+}
+
+.ppl {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    color: #FFFFFF;
+    text-decoration: none;
+    left: 60px;
+    position: relative;
+    margin-top: 30px;
+}
+
+
+.user-icon {
+    font-size: 40px;
+    /* Increase the font size to make the icon bigger */
+    color: rgb(255, 255, 255);
+    margin-right: 15px;
+    width: 40px;
+    /* Make sure the icon's width matches the size */
+    height: 40px;
+    /* Set a fixed height to prevent cutting */
+    line-height: 40px;
+    /* Align the icon properly within the container */
+}
+
+.username-text {
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.logout-container .username-text {
+    color: #ffffff !important;
+    /* Change this to the color you want */
+    font-size: 20px;
+    font-weight: bold;
+}
