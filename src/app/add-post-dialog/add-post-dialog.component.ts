@@ -3,61 +3,60 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 @Component({
   selector: 'app-add-post-dialog',
   standalone: false,
-  
+
   templateUrl: './add-post-dialog.component.html',
   styleUrl: './add-post-dialog.component.scss'
 })
 export class AddPostDialogComponent {
-  content: string = '';
-  replySettings: string = 'Everyone can reply';
+  content: string = ''; // Content for the dialog
+  selectedFiles: File[] = []; // Files selected in the dialog
+  imagePreviews: string[] = []; // Previews for dialog's images
 
-  checkContent(): void {
-    const editableContent = document.querySelector('.editable-content');
-    this.content = editableContent?.textContent || '';
+  // File upload trigger
+  triggerFileUpload(): void {
+    const fileInput = document.querySelector('#dialogFileInput') as HTMLInputElement;
+    if (fileInput) fileInput.click();
   }
 
-  toggleReplySettings(): void {
-    this.replySettings =
-      this.replySettings === 'Everyone can reply'
-        ? 'Only followers can reply'
-        : 'Everyone can reply';
-  }
-
-  post(): void {
-    console.log('Post content:', this.content);
-    // Add your post logic here
-  }
-
-  selectedFiles: File[] = []; // Holds the selected files
-  imagePreviews: string[] = [];
-  // Trigger the file input when the image icon is clicked
-  triggerFileUpload() {
-    const fileInput = document.querySelector('input[type="file"]') as HTMLInputElement;
-    fileInput.click();
-  }
-
-  onFilesSelected(event: Event) {
+  // Handle file selection
+  onFilesSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
     if (input.files && input.files.length > 0) {
-      this.selectedFiles = Array.from(input.files); // Convert FileList to Array
+      this.selectedFiles = Array.from(input.files);
 
       // Clear previous previews
       this.imagePreviews = [];
 
-      // Generate previews for each selected file
+      // Generate previews
       this.selectedFiles.forEach((file) => {
         const reader = new FileReader();
         reader.onload = () => {
-          this.imagePreviews.push(reader.result as string); // Add preview to array
+          this.imagePreviews.push(reader.result as string);
+          console.log('Image preview added:', reader.result); // Debugging
         };
         reader.readAsDataURL(file);
       });
-
-      console.log('Selected files:', this.selectedFiles);
     }
-  
+  }
 
-  // Handle file selection and generate preview
-  }   removeImage(index: number) {
+  // Remove selected image
+  removeImage(index: number): void {
     this.imagePreviews.splice(index, 1);
-  } }
+  }
+
+  // Post content
+  post(): void {
+    console.log('Posting:', this.content, this.selectedFiles);
+    // Add your post logic here
+  }
+
+  isPostButtonEnabled(): boolean {
+    // Enable if there's content or at least one image selected
+    return this.content.trim().length > 0 || this.imagePreviews.length > 0;
+  }
+  onContentInput(event: Event): void {
+    const element = event.target as HTMLElement;
+    this.content = element.textContent || '';
+    console.log('Content updated:', this.content); // Debugging
+  }
+}

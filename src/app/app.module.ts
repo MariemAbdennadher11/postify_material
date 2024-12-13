@@ -30,6 +30,7 @@ import { RechercheComponent } from './recherche/recherche.component';
 import { NotificationComponent } from './notification/notification.component';
 import { AddPostDialogComponent } from './add-post-dialog/add-post-dialog.component';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import { PostsComponent } from './posts/posts.component';
 
 
 
@@ -43,6 +44,7 @@ import {MatDialog, MatDialogModule} from '@angular/material/dialog';
     RechercheComponent,
     NotificationComponent,
     AddPostDialogComponent,
+    PostsComponent,
   ],
   imports: [
     BrowserModule,

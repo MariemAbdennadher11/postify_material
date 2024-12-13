@@ -6,7 +6,7 @@ import { AddPostDialogComponent } from '../add-post-dialog/add-post-dialog.compo
 @Component({
   selector: 'app-home',
   standalone: false,
-  
+
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -18,25 +18,24 @@ export class HomeComponent {
   // username
 
   isLoginPage: boolean = false;
-username: any;
+  username: any;
 
-  constructor(private router : Router){
+  constructor(private router: Router) {
     //this.isLogged = this.authentiticationService.checkIfLoggedIn()
     // this.username = localStorage.getItem('username')?.slice(0,2).toUpperCase()
   }
-  
+
   ngOnInit() {
   }
 
   ngDoCheck(): void {
     let currentUrl = this.router.url;
 
-    if (currentUrl =='/login' || currentUrl =='/register')
-    {
+    if (currentUrl == '/login' || currentUrl == '/register') {
       this.isLoginPage = true;
 
-    }else {
-        this.isLoginPage = false;
+    } else {
+      this.isLoginPage = false;
     }
 
   }
@@ -58,10 +57,10 @@ username: any;
   }
   readonly dialog = inject(MatDialog);
 
-  openDialog() :void{
+  openDialog(): void {
     const dialogRef = this.dialog.open(AddPostDialogComponent
-      ,{
-        width: '500px', 
+      , {
+        width: '500px',
       }
     );
 

@@ -3,13 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { FirstPageComponent } from './first-page/first-page.component';
 import { RegisterComponent } from './register/register.component';
-import { LayoutComponent } from './layout/layout.component';
-import { MainComponent } from './layout/main/main.component';
 import { HomeComponent } from './home/home.component';
 import { AddPostDialogComponent } from './add-post-dialog/add-post-dialog.component';
 import { NotificationComponent } from './notification/notification.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RechercheComponent } from './recherche/recherche.component';
+import { PostsComponent } from './posts/posts.component';
 
 const routes: Routes = [
   {
@@ -18,6 +17,10 @@ const routes: Routes = [
       {
         path: 'post',
         component: AddPostDialogComponent
+      },
+      {
+        path: 'posts',
+        component: PostsComponent
       },
       {
         path: 'notif',
@@ -37,12 +40,7 @@ const routes: Routes = [
   { path: '', component: FirstPageComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-
-
 ];
-
-
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

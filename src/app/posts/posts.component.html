@@ -1,0 +1,93 @@
+<!-- posts.component.html -->
+<mat-card class="post-card">
+    <mat-card-content>
+        <div class="user-info">
+            <img src="assets/images/image.jpeg" class="avatar" />
+            <div class="editable-content" contenteditable="true" (input)="onContentInput($event)"
+                [attr.data-placeholder]="'What\'s on your mind?'"></div>
+
+        </div>
+        <div class="reply-settings" (click)="toggleReplySettings1()">
+            <mat-icon>public</mat-icon>
+            <span>{{ replySettings }}</span>
+        </div>
+    </mat-card-content>
+
+    <div *ngIf="imagePreviews.length > 0" class="image-preview">
+        <div *ngFor="let preview of imagePreviews; let i = index" class="image-item">
+            <div class="image-container">
+                <img [src]="preview" alt="Selected Image" />
+                <button class="delete-button" (click)="removeImage1(i)">×</button>
+            </div>
+        </div>
+    </div>
+
+    <mat-card-actions class="toolbar">
+        <div class="toolbar-icons">
+            <button class="toolbar-button" (click)="triggerFileUpload1()">
+                <mat-icon>image</mat-icon>
+            </button>
+            <input type="file" #fileInput (change)="onFilesSelected($event)" accept="image/*" multiple
+                style="display: none;" />
+            <button class="toolbar-button">
+                <mat-icon>gif</mat-icon>
+            </button>
+            <button class="toolbar-button">
+                <mat-icon>sentiment_satisfied_alt</mat-icon>
+            </button>
+            <button class="toolbar-button">
+                <mat-icon>event</mat-icon>
+            </button>
+            <button class="toolbar-button">
+                <mat-icon>location_on</mat-icon>
+            </button>
+        </div>
+
+        <div class="action-buttons">
+            <button mat-button class="cancel-button" mat-card-close>Cancel</button>
+            <button mat-raised-button color="primary" class="post-button"
+                [disabled]="!isPostButtonEnabled()">Post</button>
+        </div>
+    </mat-card-actions>
+</mat-card>
+<p></p>
+<p></p>
+<div class="card-container">
+    <mat-card class="example-card" appearance="outlined">
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>Shiba Inu</mat-card-title>
+            <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+            alt="Photo of a Shiba Inu" />
+        <mat-card-content>
+            <p>
+                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from
+                Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was
+                originally bred for hunting.
+            </p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button (click)="toggleFavorite()">
+                <mat-icon [class.redIcon]="isFavorite">
+                    {{ isFavorite ? 'favorite' : 'favorite_border' }}
+                </mat-icon>
+            </button>
+
+
+            <button mat-button (click)="toggleCommentSection()">
+                <mat-icon>chat_bubble_outline</mat-icon>
+            </button>
+            <button mat-button><mat-icon>share</mat-icon></button>
+        </mat-card-actions>
+        <!-- Comment Section -->
+        <div *ngIf="showCommentSection" class="comment-section">
+            <textarea [(ngModel)]="newComment" placeholder="Write a comment..."></textarea>
+            <button mat-raised-button color="primary" (click)="submitComment()">Comment</button>
+            <div class="comments-list">
+                <div *ngFor="let comment of comments" class="comment-item">
+                    {{ comment }}
+                </div>
+            </div>
+        </div>
