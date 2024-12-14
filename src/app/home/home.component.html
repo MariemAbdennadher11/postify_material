@@ -38,18 +38,18 @@
             </div>
 
             <div class="item-sidebar-menu" (click)="openDialog()">
-                <div class="rect-icon" >
+                <div class="rect-icon">
                     <mat-icon aria-hidden="false" aria-label="Ajouter un post" fontIcon="add"></mat-icon>
                 </div>
-                <a  ><span>Post</span></a>
+                <a><span>Post</span></a>
             </div>
 
-            
+
             <div [matMenuTriggerFor]="menu" class="logout-container">
                 <!-- Icône utilisateur -->
                 <mat-icon class="user-icon">account_circle</mat-icon>
                 <span class="username-text">{{ username }}aaa</span>
-            
+
                 <mat-menu #menu="matMenu">
                     <button mat-menu-item (click)="logout()" class="btnLogoutLabel">
                         Logout
@@ -83,8 +83,8 @@
         </div>
     </mat-drawer>
 
-    <!-- Main Content -->
     <mat-drawer-content class="page-content pb-lg-5">
         <router-outlet></router-outlet>
     </mat-drawer-content>
+    
 </mat-drawer-container>

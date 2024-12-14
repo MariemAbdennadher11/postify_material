@@ -1,1 +1,43 @@
-<p>profile works!</p>
+<div class="content">
+    <div class="profile-container">
+        <div class="profile-header">
+            <img src="assets/images/logo1.png" alt="Profile Picture" class="profile-picture" />
+            <h1 class="username">John Doe</h1>
+        </div>
+
+        <div class="profile-stats">
+            <div class="stat">
+                <h2 class="h">45</h2>
+                <p class="p1">Followers</p>
+            </div>
+            <div class="stat">
+                <h2 class="hh">120</h2>
+                <p class="p2">following</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add the tabs and content here -->
+    <div class="extra-container">
+        <div class="tabs">
+            <button class="tab" [class.active]="activeTab === 'posts'" (click)="switchTab('posts')">
+                Posts
+            </button>
+            <button class="tab" [class.active]="activeTab === 'photos'" (click)="switchTab('photos')">
+                Photos
+            </button>
+        </div>
+
+        <div class="tab-content">
+            <!-- Display posts if activeTab is 'posts' -->
+            <div *ngIf="activeTab === 'posts'">
+                <p *ngFor="let post of posts">{{ post }}</p>
+            </div>
+
+            <!-- Display photos if activeTab is 'photos' -->
+            <div *ngIf="activeTab === 'photos'">
+                <img *ngFor="let photo of photos" [src]="photo" alt="Photo" class="photo" />
+            </div>
+        </div>
+    </div>
+</div>
