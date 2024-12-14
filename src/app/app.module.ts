@@ -31,6 +31,7 @@ import { NotificationComponent } from './notification/notification.component';
 import { AddPostDialogComponent } from './add-post-dialog/add-post-dialog.component';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import { PostsComponent } from './posts/posts.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -48,6 +49,7 @@ import { PostsComponent } from './posts/posts.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     MatIconModule,MatInputModule,
     MatFormFieldModule,MatButtonModule,

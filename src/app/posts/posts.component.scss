@@ -5,6 +5,18 @@
     font-size: 1.5rem;
     width: 100%;
 }
+.no-media-placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px; /* Adjust height as needed */
+    background-color: #f4f4f4; /* Light background for contrast */
+    border: 1px dashed #ccc; /* Dashed border to indicate no media */
+    border-radius: 10px; /* Rounded corners */
+    color: #888; /* Placeholder text color */
+    font-size: 16px; /* Font size for the placeholder text */
+    text-align: center; /* Center the text */
+}
 
 .close-button {
     cursor: pointer;

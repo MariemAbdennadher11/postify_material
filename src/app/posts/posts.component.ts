@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { PostCreateInput, PostResponseDto } from '../shared/DTO/post';
+import { PostService } from '../shared/services/post.service';
 
 @Component({
   selector: 'app-posts',
@@ -10,6 +12,22 @@ import { Component } from '@angular/core';
 export class PostsComponent {
   postContent: string = ''; // Content for posts
   replySettings: string = 'Everyone can reply';
+  selectedFiles: File[] = []; // Holds the selected files
+  imagePreviews: string[] = [];
+  posts: PostResponseDto[] = [];
+  newPost: PostCreateInput = { authorId: '', content: '', images: [], videos: [] };
+
+  constructor(private postService: PostService) {}
+  
+  ngOnInit(): void {
+    this.loadPosts();
+  }
+  loadPosts(): void {
+    this.postService.getAllPosts().subscribe(posts => {
+        this.posts = posts;
+    });
+  }
+  
 
   // State for content
   checkContent(): void {
@@ -28,9 +46,6 @@ export class PostsComponent {
     console.log('Post content:', this.postContent);
     // Add your post logic here
   }
-
-  selectedFiles: File[] = []; // Holds the selected files
-  imagePreviews: string[] = [];
 
   // Trigger file input for image selection
   triggerFileUpload1() {

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from '../../environnements/environment';
+import { environment } from '../../../environnements/environment';
 const BASE_URL = environment.rootUrl + "/auth/local";
 
 @Injectable({
