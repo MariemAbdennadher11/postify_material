@@ -14,6 +14,9 @@ export class PostsComponent {
   replySettings: string = 'Everyone can reply';
   selectedFiles: File[] = []; // Holds the selected files
   imagePreviews: string[] = [];
+  showCommentSection = false; // To toggle the comment section
+  newComment: string = ''; // To bind the input for new comments
+  comments: string[] = []; // To store the list of comments
   posts: PostResponseDto[] = [];
   newPost: PostCreateInput = { authorId: '', content: '', images: [], videos: [] };
 
@@ -91,16 +94,10 @@ export class PostsComponent {
   toggleFavorite() {
     this.isFavorite = !this.isFavorite; // Toggle favorite state
   }
-  showCommentSection = false; // To toggle the comment section
-  newComment: string = ''; // To bind the input for new comments
-  comments: string[] = []; // To store the list of comments
-
 
   toggleCommentSection() {
     this.showCommentSection = !this.showCommentSection;
   }
-
-
   submitComment() {
     if (this.newComment.trim()) {
       this.comments.push(this.newComment.trim());
