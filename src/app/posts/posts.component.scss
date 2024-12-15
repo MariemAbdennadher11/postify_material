@@ -368,11 +368,10 @@ mat-card-header {
     /* Set the text color */
 }
 .avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 1px solid #ddd; 
+    width: 40px; /* Ajustez la largeur selon vos besoins */
+    height: 40px; /* Même hauteur pour un format carré */
+    border-radius: 50%; /* Rend l'image circulaire */
+    object-fit: cover; /* Garde les proportions sans déformation */
 }
 .example-card {
     width: 100%;
@@ -384,4 +383,27 @@ mat-card-header {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-bottom: 10px; /* Add spacing between cards */
     overflow: visible;
+}
+.name{
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #333;
+    margin-right: 550px;
+    margin-top: 20px;
+}
+.header-container {
+    display: flex;
+    justify-content: space-between; /* Push content to the left and right */
+    align-items:end; /* Center items vertically */
+}
+
+/* Align the title container to the right */
+.title-container {
+    margin-left: auto; /* Pushes the title to the right */
+}
+.card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin: 0; /* Évite les marges par défaut */
 }

@@ -10,7 +10,6 @@
             <span>{{ replySettings }}</span>
         </div>
     </mat-card-content>
-
     <div *ngIf="imagePreviews.length > 0" class="image-preview">
         <div *ngFor="let preview of imagePreviews; let i = index" class="image-item">
             <div class="image-container">
@@ -55,8 +54,9 @@
 <div class="card-container">
     <mat-card *ngFor="let post of posts; trackBy: trackByPostId"  appearance="outlined" class="example-card">          
            <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>{{ post.authorPrenom +' '+post.authorNom }}</mat-card-title>
+            <!-- <img src="assets/images/image.jpeg" class="avatar" /> -->
+
+            <mat-card-title class="name">{{ post.authorPrenom +' '+post.authorNom }}</mat-card-title>
             <div>
                 <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" class="iconmenu">
                     <mat-icon>more_vert</mat-icon>
@@ -76,6 +76,7 @@
         </mat-card-header>
 
         <mat-card-content>
+
             <p>{{ post.content }}</p>
         </mat-card-content>
         <!-- Check if there are images -->
