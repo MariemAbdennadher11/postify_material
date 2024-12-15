@@ -4,7 +4,6 @@
             <img src="assets/images/image.jpeg" class="avatar" />
             <div class="editable-content" contenteditable="true" (input)="onContentInput($event)"
                 [attr.data-placeholder]="'What\'s on your mind?'"></div>
-
         </div>
         <div class="reply-settings" (click)="toggleReplySettings1()">
             <mat-icon>public</mat-icon>
@@ -49,91 +48,44 @@
         </div>
     </mat-card-actions>
 </mat-card>
+
 <p></p>
 <p></p>
+
 <div class="card-container">
     <mat-card *ngFor="let post of posts" class="example-card" appearance="outlined">
         <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>
             <mat-card-title>{{ post.authorPrenom +' '+post.authorNom }}</mat-card-title>
-            <!-- <mat-card-subtitle>Post ID: {{ post.id }}</mat-card-subtitle> -->
+
+            <!-- Menu Button -->
+            <button mat-icon-button [matMenuTriggerFor]="postMenu">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #postMenu="matMenu">
+                <button mat-menu-item (click)="editPost(post)">
+                    <mat-icon>edit</mat-icon>
+                    <span>Edit</span>
+                </button>
+                <button mat-menu-item (click)="deletePost(post)">
+                    <mat-icon>delete</mat-icon>
+                    <span>Delete</span>
+                </button>
+            </mat-menu>
         </mat-card-header>
+
         <mat-card-content>
             <p>{{ post.content }}</p>
         </mat-card-content>
 
-        <!-- Check if there are images -->
-        <div class="image-preview" *ngIf="post.imageURLs.length > 0; ">
+        <div class="image-preview" *ngIf="post.imageURLs.length > 0;">
             <div *ngFor="let imageUrl of post.imageURLs" class="image-item">
                 <img [src]="imageUrl" alt="Post Image" />
             </div>
         </div>
 
         <mat-card-actions>
-            <!-- <button mat-button (click)="toggleFavorite(post.id)">
-                <mat-icon [class.redIcon]="isFavorite(post.id)">
-                    {{ isFavorite(post.id) ? 'favorite' : 'favorite_border' }}
-                </mat-icon>
-            </button> -->
-
-            <!-- <button mat-button (click)="toggleCommentSection(post.id)">
-                <mat-icon>chat_bubble_outline</mat-icon>
-            </button> -->
             <button mat-button><mat-icon>share</mat-icon></button>
         </mat-card-actions>
-
-        <!-- Comment Section -->
-        <!-- <div *ngIf="showCommentSection[post.id]" class="comment-section">
-            <textarea [(ngModel)]="newComment[post.id]" placeholder="Write a comment..."></textarea>
-            <button mat-raised-button color="primary" (click)="submitComment(post.id)">Comment</button>
-            <div class="comments-list">
-                <div *ngFor="let comment of comments[post.id]" class="comment-item">
-                    {{ comment }}
-                </div>
-            </div>
-        </div> -->
     </mat-card>
 </div>
-<!-- <div class="card-container">
-    <mat-card class="example-card" appearance="outlined">
-        <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>Shiba Inu</mat-card-title>
-            <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-            <p>
-                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from
-                Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was
-                originally bred for hunting.
-            </p>
-            <p></p>
-        </mat-card-content>
-        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-            alt="Photo of a Shiba Inu" />
-
-        <mat-card-actions>
-            <button mat-button (click)="toggleFavorite()">
-                <mat-icon [class.redIcon]="isFavorite">
-                    {{ isFavorite ? 'favorite' : 'favorite_border' }}
-                </mat-icon>
-            </button>
-
-
-            <button mat-button (click)="toggleCommentSection()">
-                <mat-icon>chat_bubble_outline</mat-icon>
-            </button>
-            <button mat-button><mat-icon>share</mat-icon></button>
-        </mat-card-actions>
-      
-        <div *ngIf="showCommentSection" class="comment-section">
-            <textarea [(ngModel)]="newComment" placeholder="Write a comment..."></textarea>
-            <button mat-raised-button color="primary" (click)="submitComment()">Comment</button>
-            <div class="comments-list">
-                <div *ngFor="let comment of comments" class="comment-item">
-                    {{ comment }}
-                </div>
-            </div>
-        </div>
-</mat-card>
-</div> -->

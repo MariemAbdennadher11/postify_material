@@ -17,17 +17,17 @@ export class PostsComponent {
   posts: PostResponseDto[] = [];
   newPost: PostCreateInput = { authorId: '', content: '', images: [], videos: [] };
 
-  constructor(private postService: PostService) {}
-  
+  constructor(private postService: PostService) { }
+
   ngOnInit(): void {
     this.loadPosts();
   }
   loadPosts(): void {
     this.postService.getAllPosts().subscribe(posts => {
-        this.posts = posts;
+      this.posts = posts;
     });
   }
-  
+
 
   // State for content
   checkContent(): void {
@@ -107,4 +107,14 @@ export class PostsComponent {
       this.newComment = ''; // Clear the input after submission
     }
   }
+  editPost(post: any) {
+    console.log('Edit post:', post);
+    // Implement edit logic
+  }
+
+  deletePost(post: any) {
+    console.log('Delete post:', post);
+    // Implement delete logic
+  }
+
 }
