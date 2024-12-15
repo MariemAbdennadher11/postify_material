@@ -5,18 +5,15 @@
     font-size: 1.5rem;
     width: 100%;
 }
-.no-media-placeholder {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 150px; /* Adjust height as needed */
-    background-color: #f4f4f4; /* Light background for contrast */
-    border: 1px dashed #ccc; /* Dashed border to indicate no media */
-    border-radius: 10px; /* Rounded corners */
-    color: #888; /* Placeholder text color */
-    font-size: 16px; /* Font size for the placeholder text */
-    text-align: center; /* Center the text */
-}
+// .no-media-placeholder {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     height: 150px; /* Adjust height as needed */
+//     background-color: #f4f4f4; /* Light background for contrast */
+//     border: 1px dashed #ccc; /* Dashed border to indicate no media */
+//     border-radius: 10px; /* Rounded corners */
+// }
 
 .close-button {
     cursor: pointer;
@@ -33,10 +30,8 @@
 .user-info {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 16px; /* Spacing between avatar and editable content */
 }
-
-
 .editable-content {
     flex-grow: 1;
     min-height: 80px;
@@ -68,45 +63,6 @@
     /* Removes the default focus outline */
     border-color: #ccc;
     /* Keeps the border color consistent */
-}
-
-.reply-settings {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    /* Space between the icon and the text */
-    cursor: pointer;
-    /* Make the area clickable */
-}
-
-.reply-settings mat-icon {
-    font-size: 24px;
-    /* Adjust the size of the public icon */
-    color: #3b3d3b;
-    /* Color of the icon */
-    background-color: #e0f7fa;
-    /* Light background color for the icon */
-    border-radius: 50%;
-    /* Make the icon circular */
-    padding: 5px;
-    /* Padding around the icon for a better look */
-    margin-left: 30px;
-}
-
-.reply-settings span {
-    font-size: 14px;
-    /* Adjust text size */
-    color: #3d3636;
-    /* Set the text color */
-}
-
-.avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    /* Makes the image circular */
-    object-fit: cover;
-    /* Ensures the image fits inside the circle */
 }
 
 .toolbar {
@@ -149,13 +105,6 @@ mat-icon {
     /* Icon color */
 }
 
-.action-buttons {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    /* Space between Cancel and Post buttons */
-}
-
 .cancel-button {
     background: none;
     border: none;
@@ -195,13 +144,6 @@ mat-icon {
     /* Darker color on hover */
 }
 
-.image-preview {
-    margin-top: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .image-preview img {
     max-width: 1000%;
     max-height: 250px;
@@ -214,32 +156,29 @@ mat-icon {
     display: flex;
     gap: 10px;
 }
+// .action-buttons {
+//     display: flex;
+//     align-items: center;
+//     gap: 10px;
+//     /* Space between Cancel and Post buttons */
+// }
 
 .image-preview {
     margin-top: 15px;
     display: flex;
-    flex-wrap: wrap;
-    /* Allow multiple images to wrap */
-    gap: 10px;
-    /* Space between image containers */
-    justify-content: center;
-    /* Center-align images */
+    flex-wrap: wrap; /* Allow multiple images to wrap */
+    gap: 10px; /* Space between image containers */
+    justify-content: center; /* Center-align images */
 }
 
 .image-item {
     position: relative;
-    width: 150px;
-    /* Fixed width for each image container */
-    height: 150px;
-    /* Fixed height for each image container */
-    border-radius: 10px;
-    /* Rounded corners for the image container */
-    overflow: hidden;
-    /* Ensure image and buttons are clipped to the container */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    /* Subtle shadow for better visual separation */
-    background-color: #f4f4f4;
-    /* Light background for better contrast */
+    width: 150px; /* Fixed width for each image container */
+    height: 150px; /* Fixed height for each image container */
+    border-radius: 10px; /* Rounded corners for the image container */
+    overflow: hidden; /* Ensure image and buttons are clipped to the container */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for better visual separation */
+    background-color: #f4f4f4; /* Light background for better contrast */
 }
 
 .image-container img {
@@ -288,66 +227,131 @@ mat-icon {
 .delete-button:hover {
     background-color: rgba(255, 0, 0, 0.7);
 }
-
-.post-card {
-    width: 800px;
-    border-radius: 0 !important;
-    background-color: transparent;
-    margin-bottom: 20 px;
-    margin-left: 130px;
-
-
-}
-
-.card-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin-bottom: 10px;
-
-    /* Full viewport height */
-}
-
-mat-card {
-    width: 800px;
-    margin-bottom: 150px;
-    border-radius: 0 !important;
-    position: relative;
-
-    /* Optional: Set a fixed width for the card */
-}
-
 .redIcon {
     color: red;
 }
 
-.comment-section {
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #f9f9f9;
-    border-top: 1px solid #ccc;
-    border-radius: 4px;
-}
+// .comment-section {
+//     margin-top: 10px;
+//     padding: 10px;
+//     background-color: #f9f9f9;
+//     border-top: 1px solid #ccc;
+//     border-radius: 4px;
+// }
 
-textarea {
-    width: 100%;
-    height: 50px;
-    margin-bottom: 10px;
-    padding: 5px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
+// textarea {
+//     width: 100%;
+//     height: 50px;
+//     margin-bottom: 10px;
+//     padding: 5px;
+//     border: 1px solid #ffffff;
+//     border-radius: 4px;
+// }
 
 button {
     margin-top: 5px;
 }
 
-.comments-list {
+// .comments-list {
+//     margin-top: 10px;
+// }
+
+// .comment-item {
+//     padding: 5px 0;
+//     border-bottom: 1px solid #eee;
+// }
+
+.iconmenu{
+    margin-top: 25px;
+    margin-left: 95%;
+    size: 30px;
+}
+.post-content {
+    padding: 16px; /* Padding for content */
+    border-radius: 4px; /* Subtle rounded corners */
+    line-height: 1.6; /* Improve text readability */
+    font-size: 16px; /* Standard font size */
+    word-wrap: break-word; /* Ensures long words don't overflow */
+}
+.image-post {
     margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Add spacing between images */
+    justify-content: center; /* Center-align the images */
 }
 
-.comment-item {
-    padding: 5px 0;
-    border-bottom: 1px solid #eee;
+.image-post img {
+    width: 100%; /* Stretch image to full container width */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Prevent distortion */
+    // border-radius: 10px;
+    border: 1px solid #ddd; /* Add a light border */
+}
+.example-card img {
+    width: 100%; /* Make image responsive to card width */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Keep image visually neat */
+    // border-radius: 10px; /* Rounded corners */
+}
+.post-card {
+    width: 80%;
+    margin-right: auto;
+    margin-bottom: 20px;
+    margin-left: auto;
+    // border-radius: 10px;
+    background-color: #fff; /* Match example-card background */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+    border: 1px solid #e0e0e0; /* Consistent border */
+}
+.card-container {
+    width: 80%;
+    margin: 20px auto; /* Center the container */
+    display: flex;
+    flex-direction: column; /* Stack cards vertically */
+    gap: 20px; /* Add spacing between cards */
+}
+.reply-settings {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* Space between the icon and the text */
+    cursor: pointer;
+    /* Make the area clickable */
+    // margin: 10px 0; /* Add spacing */
+    font-size: 14px;
+    color: #555;
+}
+.reply-settings mat-icon {
+    font-size: 24px; /* Adjust the size of the public icon */
+    color: #3b3d3b;/* Color of the icon */
+    background-color: #e0f7fa;/* Light background color for the icon */
+    border-radius: 50%;/* Make the icon circular */
+    padding: 5px;/* Padding around the icon for a better look */
+    margin-left: 30px;
+}
+
+.reply-settings span {
+    font-size: 14px;
+    /* Adjust text size */
+    color: #3d3636;
+    /* Set the text color */
+}
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #ddd; 
+}
+.example-card {
+    width: 100%;
+    margin: 0; 
+    padding: 0;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px; /* Add spacing between cards */
+    overflow: hidden;
 }
