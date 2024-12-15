@@ -33,6 +33,13 @@ export class PostService {
 
         return this.http.post<PostResponseDto>(`${this.baseUrl}/create`, formData);
     }
+      // Add a like to a post
+    addLike(postId: string, userId: string): Observable<PostResponseDto> {
+        return this.http.post<PostResponseDto>(`${this.baseUrl}/${postId}/like/${userId}`, {});
+    }
+    deleteLike(postId: string, userId: string): Observable<PostResponseDto> {
+        return this.http.delete<PostResponseDto>(`${this.baseUrl}/${postId}/dislike/${userId}`, {});
+    }
 
     updatePost(postId: string, postUpdateInput: PostUpdateInput): Observable<PostResponseDto> {
         return this.http.put<PostResponseDto>(`${this.baseUrl}/${postId}`, postUpdateInput);
@@ -41,4 +48,5 @@ export class PostService {
     deletePost(id: string): Observable<void> {
         return this.http.delete<void>(`${this.baseUrl}/delete/${id}`);
     }
+
 }

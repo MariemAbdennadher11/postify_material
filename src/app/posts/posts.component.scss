@@ -1,10 +1,10 @@
-.dialog-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 1.5rem;
-    width: 100%;
-}
+// .dialog-header {
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     font-size: 1.5rem;
+//     width: 100%;
+// }
 // .no-media-placeholder {
 //     display: flex;
 //     justify-content: center;
@@ -41,6 +41,7 @@
     border-radius: 5px;
     font-size: 1rem;
     position: relative;
+
     transition: border-color 0.3s;
     /* Smooth transition for border color */
 }
@@ -99,11 +100,11 @@
     /* Subtle hover effect */
 }
 
-mat-icon {
-    font-size: 24px;
-    color: #2f2d2d;
-    /* Icon color */
-}
+// mat-icon {
+//     font-size: 24px;
+//     color: #2f2d2d;
+//     /* Icon color */
+// }
 
 .cancel-button {
     background: none;
@@ -256,16 +257,23 @@ button {
 //     margin-top: 10px;
 // }
 
-// .comment-item {
-//     padding: 5px 0;
-//     border-bottom: 1px solid #eee;
-// }
-
-.iconmenu{
-    margin-top: 25px;
-    margin-left: 95%;
-    size: 30px;
+.comment-item {
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
 }
+
+// .iconmenu{
+//     margin-top: 25px;
+//     margin-left: 95%;
+//     size: 30px;
+//     z-index: 1000;
+// }
+.iconmenu {
+    margin-top: 0; /* Adjust as needed */
+    margin-left: auto; /* Align to the right within a flex container */
+    font-size: 24px; /* Standard icon size */
+    z-index: 1000;
+    }
 .post-content {
     padding: 16px; /* Padding for content */
     border-radius: 4px; /* Subtle rounded corners */
@@ -280,6 +288,27 @@ button {
     gap: 10px; /* Add spacing between images */
     justify-content: center; /* Center-align the images */
 }
+// .cdk-overlay-container, .cdk-overlay-connected-position-bounding-box {
+//     overflow: visible !important; 
+//     z-index: 1000; /* Ensure visibility above other elements */
+// }
+// .card-container, .example-card {
+//     // position: static !important; /* Avoid unexpected stacking contexts */
+//     overflow: visible !important; /* Allow menu to be visible */
+// }
+// mat-menu {
+//     position: absolute;
+// }
+mat-card-header {
+    display: flex;
+    justify-content: space-between; /* Ensures space between title and menu */
+   
+}
+.example-card {
+    /* Ensure card has relative positioning if necessary */
+    position: relative;
+    /* Other styles */
+    }
 
 .image-post img {
     width: 100%; /* Stretch image to full container width */
@@ -310,6 +339,7 @@ button {
     display: flex;
     flex-direction: column; /* Stack cards vertically */
     gap: 20px; /* Add spacing between cards */
+    // overflow: visible;
 }
 .reply-settings {
     display: flex;
@@ -353,5 +383,5 @@ button {
     background-color: #fff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-bottom: 10px; /* Add spacing between cards */
-    overflow: hidden;
+    overflow: visible;
 }
