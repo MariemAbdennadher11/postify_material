@@ -12,6 +12,7 @@ import { AddPostDialogComponent } from '../add-post-dialog/add-post-dialog.compo
 })
 
 export class HomeComponent {
+
   title = 'app-hemodialyse';
   isLogged = false
   currentDate: Date = new Date();
@@ -68,6 +69,7 @@ export class HomeComponent {
       console.log(`Dialog result: ${result}`);
     });
   }
+
 
 }
 
