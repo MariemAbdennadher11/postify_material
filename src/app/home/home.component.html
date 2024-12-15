@@ -14,6 +14,7 @@
                     <mat-icon aria-hidden="false" aria-label="Accueil" fontIcon="home"></mat-icon>
                 </div>
                 <a routerLink="/home/posts"><span>Home</span></a>
+                <!-- <a routerLink="home"><span>Home</span></a> -->
             </div>
 
             <div class="item-sidebar-menu mb-5">
@@ -34,7 +35,7 @@
                 <div class="rect-icon">
                     <mat-icon aria-hidden="false" aria-label="Profil" fontIcon="person_outline"></mat-icon>
                 </div>
-                <a routerLink="profile"><span>Profile</span></a>
+                <a router Link="profile"><span>Profile</span></a>
             </div>
 
             <div class="item-sidebar-menu" (click)="openDialog()">
@@ -85,7 +86,6 @@
 
     <mat-drawer-content class="page-content pb-lg-5">
         <router-outlet></router-outlet>
-    
     </mat-drawer-content>
-    
+
 </mat-drawer-container>

@@ -21,8 +21,8 @@ export class PostsComponent {
   userId: string = '675f40d53887ab412d23f3bc';
   newPost: PostCreateInput = { authorId: '', content: '', images: [], videos: [] };
 
-  constructor(private postService: PostService) {}
-  
+  constructor(private postService: PostService) { }
+
   ngOnInit(): void {
     this.loadPosts();
   }
