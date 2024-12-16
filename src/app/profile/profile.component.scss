@@ -2,14 +2,16 @@
 
     margin: 50px;
     margin-top: 100px;
-    background-color: #ad2e2e;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #d6d6d6;
+    border-radius: 20px;
 }
 
+
 .profile-header {
-    margin-bottom: 100px;
-    margin-left: 20px;
+    display: flex;
+    align-items: center; /* Ensures vertical alignment */
+    gap: 8px; 
+    
 
 }
 
@@ -17,102 +19,43 @@
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 10px;
+    margin-top: 30px;
+    margin-right: 10px;
+
+
 }
 
 .username {
     font-size: 24px;
     font-weight: bold;
-    margin: -100px 150px;
 }
 
 .profile-stats {
     display: flex;
-    margin-top: 20px 0;
+    //margin-top: 20px 0;
 }
 
 .stat {
     text-align: center;
-    margin-left: 600px;
+    margin-left: 800px;
+    margin-top: -110px !important;
 
 
 }
 
 .stat1 {
-    text-align: center;
-    margin-left: 200px;
+    //text-align: center;
+    margin-left: 100px;
     padding-left: 0 !important;
+    margin-top: -110px !important;
+
 
 }
 
 
 
-/* Ensure mat-drawer-container takes full height */
-.mat-drawer-container {
-    height: 100vh;
-    /* Full viewport height */
-}
-
-/* Toolbar */
-.toolbar {
-    padding: 0;
-    position: absolute;
-    height: 60px;
-    z-index: 111111;
-    background: #fff;
-    box-shadow: 0 2px 5px 0 rgba(244, 236, 236, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-}
-
-/* Menu left (sidebar) */
-.menu-left {
-    background: rgb(24, 24, 24);
-    width: 329px;
-    height: 100%;
-    /* Sidebar height fills the entire screen */
-    position: absolute;
-    /* Remove fixed positioning to ensure proper flow */
-    top: 0;
-    /* Align at the top */
-    border-radius: 0;
-    /* Remove rounding from the sidebar */
-}
 
 
-/* Page content */
-.page-content {
-    margin-left: 329px;
-    /* Ensure content doesn't overlap the sidebar */
-    padding: 25px 20px 10px;
-    margin-top: 60px;
-    /* Account for toolbar height */
-    height: calc(100vh - 60px);
-    /* Take the full height minus toolbar */
-    overflow-y: auto;
-    /* Allow scroll within the content */
-}
-
-/* Sidebar menu items */
-.sidebar-menu {
-    display: flex;
-    flex-direction: column;
-    margin-top: 150px;
-    /* Ensure sidebar content starts after the toolbar */
-}
-
-.sidebar-menu a {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 24px;
-    color: #FFFFFF;
-    text-decoration: none;
-    left: 60px;
-    position: relative;
-    margin-bottom: 50px;
-
-}
 
 /* Sidebar menu item */
 .item-sidebar-menu {
@@ -292,4 +235,431 @@
     height: auto;
     margin-bottom: 10px;
     border-radius: 5px;
+}
+
+
+.close-button {
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.dialog-content {
+    display: contents;
+    flex-direction: column;
+    gap: 16px;
+
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    /* Spacing between avatar and editable content */
+}
+
+.editable-content {
+    flex-grow: 1;
+    min-height: 80px;
+    border: 1px solid #ccc;
+    /* Default border color */
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1rem;
+    position: relative;
+
+    transition: border-color 0.3s;
+    /* Smooth transition for border color */
+}
+
+.editable-content[data-placeholder]:empty::before {
+    content: attr(data-placeholder);
+    color: #aaa;
+    /* Placeholder color */
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    pointer-events: none;
+    /* Allow clicks to focus inside the contenteditable */
+}
+
+
+.editable-content:focus,
+.editable-content:active {
+    outline: none;
+    /* Removes the default focus outline */
+    border-color: #ccc;
+    /* Keeps the border color consistent */
+}
+
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    /* Space between icons and buttons */
+    align-items: center;
+    padding: 10px 20px;
+    border-top: 1px solid #ccc;
+    /* Divider line */
+    margin-top: 10px;
+}
+
+.toolbar-icons {
+    display: flex;
+    gap: 12px;
+    /* Space between toolbar icons */
+}
+
+.toolbar-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+.toolbar-button:hover {
+    background-color: rgba(28, 27, 27, 0.1);
+    /* Subtle hover effect */
+}
+
+// mat-icon {
+//     font-size: 24px;
+//     color: #2f2d2d;
+//     /* Icon color */
+// }
+
+.cancel-button {
+    background: none;
+    border: none;
+    color: #1d9bf0;
+    /* Text color for the Cancel button */
+    font-size: 14px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.cancel-button:hover {
+    color: #1a8cd8;
+    /* Slightly darker color on hover */
+}
+
+.post-button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    background-color: #1d9bf0;
+    /* Button background color */
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.post-button:disabled {
+    background-color: #ccc;
+    /* Disabled button color */
+    cursor: not-allowed;
+}
+
+.post-button:hover:not(:disabled) {
+    background-color: #1a8cd8;
+    /* Darker color on hover */
+}
+
+.image-preview img {
+    max-width: 1000%;
+    max-height: 250px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    object-fit: cover;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+// .action-buttons {
+//     display: flex;
+//     align-items: center;
+//     gap: 10px;
+//     /* Space between Cancel and Post buttons */
+// }
+
+.image-preview {
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    /* Allow multiple images to wrap */
+    gap: 10px;
+    /* Space between image containers */
+    justify-content: center;
+    /* Center-align images */
+}
+
+.image-item {
+    position: relative;
+    width: 150px;
+    /* Fixed width for each image container */
+    height: 150px;
+    /* Fixed height for each image container */
+    border-radius: 10px;
+    /* Rounded corners for the image container */
+    overflow: hidden;
+    /* Ensure image and buttons are clipped to the container */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for better visual separation */
+    background-color: #f4f4f4;
+    /* Light background for better contrast */
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Ensure the image fills the container */
+}
+
+.edit-button {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.edit-button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.delete-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.delete-button:hover {
+    background-color: rgba(255, 0, 0, 0.7);
+}
+
+.redIcon {
+    color: red;
+}
+
+// .comment-section {
+//     margin-top: 10px;
+//     padding: 10px;
+//     background-color: #f9f9f9;
+//     border-top: 1px solid #ccc;
+//     border-radius: 4px;
+// }
+
+// textarea {
+//     width: 100%;
+//     height: 50px;
+//     margin-bottom: 10px;
+//     padding: 5px;
+//     border: 1px solid #ffffff;
+//     border-radius: 4px;
+// }
+
+button {
+    margin-top: 5px;
+}
+
+// .comments-list {
+//     margin-top: 10px;
+// }
+
+.comment-item {
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+}
+
+// .iconmenu{
+//     margin-top: 25px;
+//     margin-left: 95%;
+//     size: 30px;
+//     z-index: 1000;
+// }
+.iconmenu {
+    margin-top: 0;
+    /* Adjust as needed */
+    margin-left: auto;
+    /* Align to the right within a flex container */
+    font-size: 24px;
+    /* Standard icon size */
+    z-index: 1000;
+}
+
+.post-content {
+    padding: 16px;
+    /* Padding for content */
+    border-radius: 4px;
+    /* Subtle rounded corners */
+    line-height: 1.6;
+    /* Improve text readability */
+    font-size: 16px;
+    /* Standard font size */
+    word-wrap: break-word;
+    /* Ensures long words don't overflow */
+}
+
+.image-post {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    /* Add spacing between images */
+    justify-content: center;
+    /* Center-align the images */
+}
+
+mat-card-header {
+    display: flex;
+    justify-content: space-between;
+    /* Ensures space between title and menu */
+
+}
+
+.example-card {
+    /* Ensure card has relative positioning if necessary */
+    position: relative;
+    /* Other styles */
+}
+
+.image-post img {
+    width: 100%;
+    /* Stretch image to full container width */
+    height: auto;
+    /* Maintain aspect ratio */
+    object-fit: cover;
+    /* Prevent distortion */
+    // border-radius: 10px;
+    border: 1px solid #ddd;
+    /* Add a light border */
+}
+
+.example-card img {
+    width: 100%;
+    /* Make image responsive to card width */
+    height: auto;
+    /* Maintain aspect ratio */
+    object-fit: cover;
+    /* Keep image visually neat */
+    // border-radius: 10px; /* Rounded corners */
+}
+
+.post-card {
+    width: 80%;
+    margin-right: auto;
+    margin-bottom: 20px;
+    margin-left: auto;
+    // border-radius: 10px;
+    background-color: #fff;
+    /* Match example-card background */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Add subtle shadow */
+    border: 1px solid #e0e0e0;
+    /* Consistent border */
+}
+
+.card-container {
+    width: 80%;
+    margin: 20px auto;
+    /* Center the container */
+    display: flex;
+    flex-direction: column;
+    /* Stack cards vertically */
+    gap: 20px;
+    /* Add spacing between cards */
+    // overflow: visible;
+}
+
+.example-card {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    /* Add spacing between cards */
+    overflow: visible;
+}
+
+
+/* Align the title container to the right */
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+    /* Évite les marges par défaut */
+}
+
+.avatar {
+    width: 40px;
+    /* Consistent size for avatar */
+    height: 40px;
+    /* Ensure square aspect ratio */
+    border-radius: 50%;
+    /* Make avatars circular */
+    object-fit: cover;
+    /* Prevent distortion */
+}
+
+
+
+
+.avatar1 {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50%; /* Make it circular */
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+
+.header-container {
+    display: flex;
+    align-items: center; /* Ensures vertical alignment */
+    gap: 8px; /* Adjust space between avatar and text */
+}
+
+
+
+.name {
+    font-size: 1.2rem; /* Slightly smaller font for balance */
+    font-weight: bold;
+    color: #4a4545; /* Dark grey color for readability */
+   // line-height: 1.2; /* Improve vertical spacing for alignment */
+}
+.content{
+    background-color: #ffffff;
+    width: 100%;
 }

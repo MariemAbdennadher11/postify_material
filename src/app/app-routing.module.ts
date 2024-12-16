@@ -18,18 +18,18 @@ const routes: Routes = [
         path: 'posts',
         component: PostsComponent
       },
-      {
-        path: 'notif',
-        component: NotificationComponent
-      },
+      // {
+      //   path: 'notif',
+      //   component: NotificationComponent
+      // },
       {
         path: 'profile',
         component: ProfileComponent
       },
-      {
-        path: 'search',
-        component: RechercheComponent
-      },
+      // {
+      //   path: 'search',
+      //   component: RechercheComponent
+      // },
     ]
   },
 

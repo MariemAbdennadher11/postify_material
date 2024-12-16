@@ -1,7 +1,7 @@
 <mat-card class="post-card">
     <mat-card-content>
         <div class="user-info">
-            <img src="assets/images/image.jpeg" class="avatar"/>
+            <img src="assets/images/user.jpg" class="avatar" />
             <div class="editable-content" contenteditable="true" (input)="onContentInput($event)"
                 [attr.data-placeholder]="'What\'s on your mind?'"></div>
         </div>
@@ -42,8 +42,7 @@
 
         <div class="action-buttons">
             <button mat-button class="cancel-button" mat-card-close>Cancel</button>
-            <button mat-raised-button color="primary" class="post-button"
-                >Post</button>
+            <button mat-raised-button color="primary" class="post-button">Post</button>
         </div>
     </mat-card-actions>
 </mat-card>
@@ -52,27 +51,27 @@
 <p></p>
 
 <div class="card-container">
-    <mat-card *ngFor="let post of posts; trackBy: trackByPostId"  appearance="outlined" class="example-card">          
-           <mat-card-header>
-            <!-- <img src="assets/images/image.jpeg" class="avatar" /> -->
-
-            <mat-card-title class="name">{{ post.authorPrenom +' '+post.authorNom }}</mat-card-title>
-            <div>
-                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" class="iconmenu">
-                    <mat-icon>more_vert</mat-icon>
-                  </button>
-                  <mat-menu #menu="matMenu">
-                    <button mat-menu-item (click)="editPost(post)">
-                      <mat-icon>edit</mat-icon>
-                      <span>edit</span>
-                    </button>
-                    <button mat-menu-item (click)="deletePost(post.id)">
-                      <mat-icon>delete</mat-icon>
-                      <span>delete</span>
-                    </button>
-                  
-                  </mat-menu>  
-               </div>  
+    <mat-card *ngFor="let post of posts; trackBy: trackByPostId" appearance="outlined" class="example-card">
+        <mat-card-header>
+            <div class="header-container">
+                    <img src="assets/images/user.jpg" class="avatar1" />
+                    <h2 class="name">{{ post.authorPrenom + ' ' + post.authorNom }}</h2>
+                </div>
+           
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu"
+                class="iconmenu">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="editPost(post)">
+                    <mat-icon>edit</mat-icon>
+                    <span>edit</span>
+                </button>
+                <button mat-menu-item (click)="deletePost(post.id)">
+                    <mat-icon>delete</mat-icon>
+                    <span>delete</span>
+                </button>
+            </mat-menu>
         </mat-card-header>
 
         <mat-card-content>
@@ -100,12 +99,12 @@
             </button> -->
             <button mat-button (click)="toggleFavorite(post.id)">
                 <mat-icon [class.redIcon]="isFavorite(post.id, userId)">
-                  {{ isFavorite(post.id, userId) ? 'favorite' : 'favorite_border' }}
+                    {{ isFavorite(post.id, userId) ? 'favorite' : 'favorite_border' }}
                 </mat-icon>
                 <span *ngIf="post.likes && post.likes.length > 0">{{ post.likes.length }}</span>
-              </button>
+            </button>
 
-             <button mat-button ><!--(click)="toggleCommentSection()"-->
+            <button mat-button><!--(click)="toggleCommentSection()"-->
                 <mat-icon>chat_bubble_outline</mat-icon>
             </button>
             <button mat-button><mat-icon>share</mat-icon></button>

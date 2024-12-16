@@ -32,6 +32,8 @@ import { AddPostDialogComponent } from './add-post-dialog/add-post-dialog.compon
 import { MatDialogModule} from '@angular/material/dialog';
 import { PostsComponent } from './posts/posts.component';
 import { HttpClientModule } from '@angular/common/http';
+import {MatTabsModule} from '@angular/material/tabs';
+
 
 
 
@@ -57,7 +59,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,FormsModule,MatSortModule,
     LayoutModule,MatSlideToggleModule,MatStepperModule,
     RouterModule,MatTableModule,MatToolbarModule,
-    MatSidenavModule,MatMenuModule, MatDialogModule
+    MatSidenavModule,MatMenuModule, MatDialogModule,MatTabsModule
   
   ],
   providers: [

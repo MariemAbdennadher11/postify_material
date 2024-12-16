@@ -1,19 +1,4 @@
-// .dialog-header {
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-//     font-size: 1.5rem;
-//     width: 100%;
-// }
-// .no-media-placeholder {
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     height: 150px; /* Adjust height as needed */
-//     background-color: #f4f4f4; /* Light background for contrast */
-//     border: 1px dashed #ccc; /* Dashed border to indicate no media */
-//     border-radius: 10px; /* Rounded corners */
-// }
+
 
 .close-button {
     cursor: pointer;
@@ -30,8 +15,10 @@
 .user-info {
     display: flex;
     align-items: center;
-    gap: 16px; /* Spacing between avatar and editable content */
+    gap: 16px;
+    /* Spacing between avatar and editable content */
 }
+
 .editable-content {
     flex-grow: 1;
     min-height: 80px;
@@ -157,6 +144,7 @@
     display: flex;
     gap: 10px;
 }
+
 // .action-buttons {
 //     display: flex;
 //     align-items: center;
@@ -167,19 +155,28 @@
 .image-preview {
     margin-top: 15px;
     display: flex;
-    flex-wrap: wrap; /* Allow multiple images to wrap */
-    gap: 10px; /* Space between image containers */
-    justify-content: center; /* Center-align images */
+    flex-wrap: wrap;
+    /* Allow multiple images to wrap */
+    gap: 10px;
+    /* Space between image containers */
+    justify-content: center;
+    /* Center-align images */
 }
 
 .image-item {
     position: relative;
-    width: 150px; /* Fixed width for each image container */
-    height: 150px; /* Fixed height for each image container */
-    border-radius: 10px; /* Rounded corners for the image container */
-    overflow: hidden; /* Ensure image and buttons are clipped to the container */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for better visual separation */
-    background-color: #f4f4f4; /* Light background for better contrast */
+    width: 150px;
+    /* Fixed width for each image container */
+    height: 150px;
+    /* Fixed height for each image container */
+    border-radius: 10px;
+    /* Rounded corners for the image container */
+    overflow: hidden;
+    /* Ensure image and buttons are clipped to the container */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for better visual separation */
+    background-color: #f4f4f4;
+    /* Light background for better contrast */
 }
 
 .image-container img {
@@ -228,6 +225,7 @@
 .delete-button:hover {
     background-color: rgba(255, 0, 0, 0.7);
 }
+
 .redIcon {
     color: red;
 }
@@ -269,78 +267,99 @@ button {
 //     z-index: 1000;
 // }
 .iconmenu {
-    margin-top: 0; /* Adjust as needed */
-    margin-left: auto; /* Align to the right within a flex container */
-    font-size: 24px; /* Standard icon size */
+    margin-top: 0;
+    /* Adjust as needed */
+    margin-left: auto;
+    /* Align to the right within a flex container */
+    font-size: 24px;
+    /* Standard icon size */
     z-index: 1000;
-    }
-.post-content {
-    padding: 16px; /* Padding for content */
-    border-radius: 4px; /* Subtle rounded corners */
-    line-height: 1.6; /* Improve text readability */
-    font-size: 16px; /* Standard font size */
-    word-wrap: break-word; /* Ensures long words don't overflow */
 }
+
+.post-content {
+    padding: 16px;
+    /* Padding for content */
+    border-radius: 4px;
+    /* Subtle rounded corners */
+    line-height: 1.6;
+    /* Improve text readability */
+    font-size: 16px;
+    /* Standard font size */
+    word-wrap: break-word;
+    /* Ensures long words don't overflow */
+}
+
 .image-post {
     margin-top: 10px;
     display: flex;
     flex-wrap: wrap;
-    gap: 10px; /* Add spacing between images */
-    justify-content: center; /* Center-align the images */
+    gap: 10px;
+    /* Add spacing between images */
+    justify-content: center;
+    /* Center-align the images */
 }
-// .cdk-overlay-container, .cdk-overlay-connected-position-bounding-box {
-//     overflow: visible !important; 
-//     z-index: 1000; /* Ensure visibility above other elements */
-// }
-// .card-container, .example-card {
-//     // position: static !important; /* Avoid unexpected stacking contexts */
-//     overflow: visible !important; /* Allow menu to be visible */
-// }
-// mat-menu {
-//     position: absolute;
-// }
+
 mat-card-header {
     display: flex;
-    justify-content: space-between; /* Ensures space between title and menu */
-   
+    justify-content: space-between;
+    /* Ensures space between title and menu */
+
 }
+
 .example-card {
     /* Ensure card has relative positioning if necessary */
     position: relative;
     /* Other styles */
-    }
+}
 
 .image-post img {
-    width: 100%; /* Stretch image to full container width */
-    height: auto; /* Maintain aspect ratio */
-    object-fit: cover; /* Prevent distortion */
+    width: 100%;
+    /* Stretch image to full container width */
+    height: auto;
+    /* Maintain aspect ratio */
+    object-fit: cover;
+    /* Prevent distortion */
     // border-radius: 10px;
-    border: 1px solid #ddd; /* Add a light border */
+    border: 1px solid #ddd;
+    /* Add a light border */
 }
+
 .example-card img {
-    width: 100%; /* Make image responsive to card width */
-    height: auto; /* Maintain aspect ratio */
-    object-fit: cover; /* Keep image visually neat */
+    width: 100%;
+    /* Make image responsive to card width */
+    height: auto;
+    /* Maintain aspect ratio */
+    object-fit: cover;
+    /* Keep image visually neat */
     // border-radius: 10px; /* Rounded corners */
 }
+
 .post-card {
     width: 80%;
     margin-right: auto;
     margin-bottom: 20px;
     margin-left: auto;
     // border-radius: 10px;
-    background-color: #fff; /* Match example-card background */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
-    border: 1px solid #e0e0e0; /* Consistent border */
+    background-color: #fff;
+    /* Match example-card background */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Add subtle shadow */
+    border: 1px solid #e0e0e0;
+    /* Consistent border */
 }
+
 .card-container {
     width: 80%;
-    margin: 20px auto; /* Center the container */
+    margin: 20px auto;
+    /* Center the container */
     display: flex;
-    flex-direction: column; /* Stack cards vertically */
-    gap: 20px; /* Add spacing between cards */
+    flex-direction: column;
+    /* Stack cards vertically */
+    gap: 20px;
+    /* Add spacing between cards */
     // overflow: visible;
 }
+
 .reply-settings {
     display: flex;
     align-items: center;
@@ -352,12 +371,18 @@ mat-card-header {
     font-size: 14px;
     color: #555;
 }
+
 .reply-settings mat-icon {
-    font-size: 24px; /* Adjust the size of the public icon */
-    color: #3b3d3b;/* Color of the icon */
-    background-color: #e0f7fa;/* Light background color for the icon */
-    border-radius: 50%;/* Make the icon circular */
-    padding: 5px;/* Padding around the icon for a better look */
+    font-size: 24px;
+    /* Adjust the size of the public icon */
+    color: #3b3d3b;
+    /* Color of the icon */
+    background-color: #e0f7fa;
+    /* Light background color for the icon */
+    border-radius: 50%;
+    /* Make the icon circular */
+    padding: 5px;
+    /* Padding around the icon for a better look */
     margin-left: 30px;
 }
 
@@ -367,43 +392,68 @@ mat-card-header {
     color: #3d3636;
     /* Set the text color */
 }
-.avatar {
-    width: 40px; /* Ajustez la largeur selon vos besoins */
-    height: 40px; /* Même hauteur pour un format carré */
-    border-radius: 50%; /* Rend l'image circulaire */
-    object-fit: cover; /* Garde les proportions sans déformation */
-}
+
 .example-card {
     width: 100%;
-    margin: 0; 
+    margin: 0;
     padding: 0;
     border-radius: 10px;
     border: 1px solid #e0e0e0;
     background-color: #fff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 10px; /* Add spacing between cards */
+    margin-bottom: 10px;
+    /* Add spacing between cards */
     overflow: visible;
 }
-.name{
-    font-weight: bold;
-    font-size: 1.2rem;
-    color: #333;
-    margin-right: 550px;
-    margin-top: 20px;
-}
-.header-container {
-    display: flex;
-    justify-content: space-between; /* Push content to the left and right */
-    align-items:end; /* Center items vertically */
-}
+
 
 /* Align the title container to the right */
-.title-container {
-    margin-left: auto; /* Pushes the title to the right */
-}
+
 .card-title {
     font-size: 1.2rem;
     font-weight: bold;
     color: #333;
-    margin: 0; /* Évite les marges par défaut */
+    margin: 0;
+    /* Évite les marges par défaut */
+}
+
+.avatar {
+    width: 40px;
+    /* Consistent size for avatar */
+    height: 40px;
+    /* Ensure square aspect ratio */
+    border-radius: 50%;
+    /* Make avatars circular */
+    object-fit: cover;
+    /* Prevent distortion */
+}
+
+
+
+
+.avatar1 {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50%; /* Make it circular */
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+
+.header-container {
+    display: flex;
+    align-items: center; /* Ensures vertical alignment */
+    gap: 8px; /* Adjust space between avatar and text */
+}
+
+
+
+.name {
+    font-size: 1.2rem; /* Slightly smaller font for balance */
+    font-weight: bold;
+    color: #4a4545; /* Dark grey color for readability */
+   // line-height: 1.2; /* Improve vertical spacing for alignment */
+}
+.stat{
+    margin-bottom: -50px !important;
 }
