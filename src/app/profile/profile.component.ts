@@ -40,12 +40,20 @@ export class ProfileComponent {
     newComment: string = ''; // To bind the input for new comments
     comments: string[] = []; // To store the list of comments
     posts: PostResponseDto[] = [];
-    userId: string = '675f40d53887ab412d23f3bc';
+    userId: string | null = null;
+
     newPost: PostCreateInput = { authorId: '', content: '', images: [], videos: [] };
   
     constructor(private postService: PostService) { }
   
     ngOnInit(): void {
+      this.userId = localStorage.getItem('userId');
+    if (this.userId) {
+      console.log('Logged-in userId:', this.userId);
+      // Proceed with userId
+    } else {
+      console.error('No userId found in localStorage');
+    }
       this.loadPosts();
     }
     // loadPosts(): void {
@@ -54,7 +62,7 @@ export class ProfileComponent {
     //   });
     // }
     loadPosts(): void {
-      this.postService.getAllPosts().subscribe({
+      this.postService.getPostsByAuthorId(this.userId!).subscribe({
         next: (posts) => {
           this.posts = posts;
           console.log('Posts loaded:', posts); // Debug to ensure posts are loaded
@@ -211,11 +219,11 @@ export class ProfileComponent {
   // Toggle the favorite state of a post
   toggleFavorite(postId: string): void {
     const userId = this.userId; // Dynamically use the current user's ID
-    const isFavorite = this.isFavorite(postId, userId);
+    const isFavorite = this.isFavorite(postId, userId!);
   
     if (isFavorite) {
         // If already liked, remove the like
-        this.postService.deleteLike(postId, userId).subscribe({
+        this.postService.deleteLike(postId, userId!).subscribe({
             next: (updatedPost) => {
                 const index = this.posts.findIndex((p) => p.id === postId);
                 if (index !== -1) {
@@ -226,7 +234,7 @@ export class ProfileComponent {
         });
     } else {
         // If not liked, add a like
-        this.postService.addLike(postId, userId).subscribe({
+        this.postService.addLike(postId, userId!).subscribe({
             next: (updatedPost) => {
                 const index = this.posts.findIndex((p) => p.id === postId);
                 if (index !== -1) {

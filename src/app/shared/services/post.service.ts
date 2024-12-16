@@ -17,7 +17,7 @@ export class PostService {
     }
 
     getPostsByAuthorId(authorId: string): Observable<PostResponseDto[]> {
-        return this.http.get<PostResponseDto[]>(`${this.baseUrl}/${authorId}`);
+        return this.http.get<PostResponseDto[]>(`${this.baseUrl}/author/${authorId}`);
     }
 
     getPostById(postId: string): Observable<PostResponseDto> {

@@ -2,7 +2,7 @@
 
     <div class="profile-header">
         <img src="assets/images/user.jpg" alt="Profile Picture" class="profile-picture" />
-        <h1 class="username">John Doe</h1>
+        <h1 class="username">Abdelhedi Yasmin</h1>
 
     </div>
 
@@ -67,8 +67,8 @@
         <span *ngIf="post.likes && post.likes.length > 0">{{ post.likes.length }}</span>
     </button> -->
                 <button mat-button (click)="toggleFavorite(post.id)">
-                    <mat-icon [class.redIcon]="isFavorite(post.id, userId)">
-                        {{ isFavorite(post.id, userId) ? 'favorite' : 'favorite_border' }}
+                    <mat-icon [class.redIcon]="isFavorite(post.id, userId!)">
+                        {{ isFavorite(post.id, userId!) ? 'favorite' : 'favorite_border' }}
                     </mat-icon>
                     <span *ngIf="post.likes && post.likes.length > 0">{{ post.likes.length }}</span>
                 </button>

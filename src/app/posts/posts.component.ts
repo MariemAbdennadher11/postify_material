@@ -18,6 +18,7 @@ export class PostsComponent {
   // newComment: string = ''; // To bind the input for new comments
   // comments: string[] = []; // To store the list of comments
   posts: PostResponseDto[] = [];
+  // userId: string | null = null;
   userId: string = '675f40d53887ab412d23f3bc';
   // newPost: PostCreateInput = { authorId: '', content: '', images: [], videos: [] };
 
@@ -25,6 +26,13 @@ export class PostsComponent {
 
   ngOnInit(): void {
     this.loadPosts();
+    // this.userId = localStorage.getItem('userId');
+    // if (this.userId) {
+    //   console.log('Logged-in userId:', this.userId);
+    //   // Proceed with userId
+    // } else {
+    //   console.error('No userId found in localStorage');
+    // }
   }
   // Load existing posts
   loadPosts(): void {
@@ -107,11 +115,11 @@ export class PostsComponent {
   // Toggle the favorite state of a post
   toggleFavorite(postId: string): void {
     const userId = this.userId; // Dynamically use the current user's ID
-    const isFavorite = this.isFavorite(postId, userId);
+    const isFavorite = this.isFavorite(postId, userId!);
 
     if (isFavorite) {
         // If already liked, remove the like
-        this.postService.deleteLike(postId, userId).subscribe({
+        this.postService.deleteLike(postId, userId!).subscribe({
             next: (updatedPost) => {
                 const index = this.posts.findIndex((p) => p.id === postId);
                 if (index !== -1) {
@@ -122,7 +130,7 @@ export class PostsComponent {
         });
     } else {
         // If not liked, add a like
-        this.postService.addLike(postId, userId).subscribe({
+        this.postService.addLike(postId, userId!).subscribe({
             next: (updatedPost) => {
                 const index = this.posts.findIndex((p) => p.id === postId);
                 if (index !== -1) {
@@ -200,7 +208,7 @@ export class PostsComponent {
     }
   
     const formData = new FormData();
-    formData.append('authorId', this.userId);
+    formData.append('authorId', this.userId!);
     formData.append('content', this.postContent.trim());
     this.selectedFiles.forEach((file) => formData.append('images', file));
   

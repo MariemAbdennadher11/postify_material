@@ -46,14 +46,20 @@ export class HomeComponent {
     console.log('Searching for:', this.searchText);
     // You can add logic to handle the search functionality here
   }
+  // logout(): void {
+  //   // Clear the authentication token from storage
+  //   localStorage.removeItem('userId');
+
+  //   // Optional: Notify the server if necessary
+  //   // fetch('/api/logout', { method: 'POST', credentials: 'include' });
+
+  //   // Redirect the user to the login page
+  //   this.router.navigate(['/']);
+  // }
   logout(): void {
-    // Clear the authentication token from storage
-    localStorage.removeItem('authToken');
-
-    // Optional: Notify the server if necessary
-    // fetch('/api/logout', { method: 'POST', credentials: 'include' });
-
-    // Redirect the user to the login page
+    console.log('Logging out...');
+    localStorage.removeItem('userId');
+    console.log('userId after removal:', localStorage.getItem('userId'));
     this.router.navigate(['/']);
   }
   readonly dialog = inject(MatDialog);
