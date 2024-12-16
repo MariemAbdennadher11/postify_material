@@ -10,22 +10,6 @@ import { PostService } from '../shared/services/post.service';
   styleUrl: './posts.component.scss'
 })
 export class PostsComponent {
-//   this.postService.updatePost(post.id, postUpdateInput).subscribe({
-//     next: (updatedPost) => {
-//       console.log('Post updated successfully:', updatedPost);
-//       // Update the post locally
-//       const index = this.posts.findIndex((p) => p.id === post.id);
-//       if (index !== -1) {
-//         this.posts[index] = updatedPost;
-//       }
-//       this.isEditing[post.id] = false; // Exit edit mode
-//     },
-//     error: (err) => console.error('Error updating post:', err),
-//   });
-// }
-editPost(_t48: PostResponseDto) {
-throw new Error('Method not implemented.');
-}
   postContent: string = ''; // Content for posts
   replySettings: string = 'Everyone can reply';
   selectedFiles: File[] = []; // Holds the selected files
@@ -236,7 +220,9 @@ throw new Error('Method not implemented.');
     this.imagePreviews = [];
     this.selectedFiles = [];
   }
-
+refreshFeed(): void {
+    this.loadPosts(); // Refresh posts when called
+}
 //   isEditing: { [postId: string]: boolean } = {}; // Tracks editing state for each post
 // editedContent: { [postId: string]: string } = {}; // Holds the edited content for each post
 

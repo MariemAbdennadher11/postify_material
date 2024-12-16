@@ -1,7 +1,8 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AddPostDialogComponent } from '../add-post-dialog/add-post-dialog.component';
+import { PostsComponent } from '../posts/posts.component';
 
 @Component({
   selector: 'app-home',
@@ -12,8 +13,7 @@ import { AddPostDialogComponent } from '../add-post-dialog/add-post-dialog.compo
 })
 
 export class HomeComponent {
-
-  title = 'app-hemodialyse';
+  @ViewChild(PostsComponent) postsComponent!: PostsComponent;
   isLogged = false
   currentDate: Date = new Date();
   // username
@@ -58,18 +58,40 @@ export class HomeComponent {
   }
   readonly dialog = inject(MatDialog);
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(AddPostDialogComponent
-      , {
-        width: '500px',
-      }
-    );
+  // openDialog(): void {
+  //   const dialogRef = this.dialog.open(AddPostDialogComponent
+  //     , {
+  //       width: '500px',
+  //     }
+  //   );
+  //     // Listen for the `postAdded` event from the dialog
+    
+  //   dialogRef.componentInstance.postAdded.subscribe(() => {
+  //     this.postsComponent.refreshFeed(); // Refresh the feed when a post is added
+  //   });
 
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     console.log(`Dialog result: ${result}`);
+  //   });
+  // }
+  openDialog(): void {
+    const dialogRef = this.dialog.open(AddPostDialogComponent, {
+      width: '500px',
+    });
+    
+    // Listen for the postAdded event
+      dialogRef.componentInstance.postAdded.subscribe(() => {
+      this.postsComponent.refreshFeed(); // Refresh the feed
+    });
+  
+    // Optional: Additional handling if needed
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+      if (result) {
+        console.log('Dialog closed with post creation');
+        this.postsComponent.refreshFeed(); 
+      }
     });
   }
-
 
 }
 
