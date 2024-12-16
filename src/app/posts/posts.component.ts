@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PostCreateInput, PostResponseDto } from '../shared/DTO/post';
+import { PostCreateInput, PostResponseDto, PostUpdateInput } from '../shared/DTO/post';
 import { PostService } from '../shared/services/post.service';
 
 @Component({
@@ -14,32 +14,29 @@ export class PostsComponent {
   replySettings: string = 'Everyone can reply';
   selectedFiles: File[] = []; // Holds the selected files
   imagePreviews: string[] = [];
-  showCommentSection = false; // To toggle the comment section
-  newComment: string = ''; // To bind the input for new comments
-  comments: string[] = []; // To store the list of comments
+  // showCommentSection = false; // To toggle the comment section
+  // newComment: string = ''; // To bind the input for new comments
+  // comments: string[] = []; // To store the list of comments
   posts: PostResponseDto[] = [];
   userId: string = '675f40d53887ab412d23f3bc';
-  newPost: PostCreateInput = { authorId: '', content: '', images: [], videos: [] };
+  // newPost: PostCreateInput = { authorId: '', content: '', images: [], videos: [] };
 
   constructor(private postService: PostService) { }
 
   ngOnInit(): void {
     this.loadPosts();
   }
-  // loadPosts(): void {
-  //   this.postService.getAllPosts().subscribe(posts => {
-  //       this.posts = posts;
-  //   });
-  // }
+  // Load existing posts
   loadPosts(): void {
     this.postService.getAllPosts().subscribe({
       next: (posts) => {
         this.posts = posts;
-        console.log('Posts loaded:', posts); // Debug to ensure posts are loaded
+        console.log('Posts loaded:', posts); // Debugging
       },
-      error: (err) => console.error('Failed to load posts:', err)
+      error: (err) => console.error('Failed to load posts:', err),
     });
   }
+
   trackByPostId(index: number, post: PostResponseDto): any {
     return post.id; // Assuming each post has a unique ID
   }
@@ -57,50 +54,6 @@ export class PostsComponent {
         : 'Everyone can reply';
   }
 
-  // post(): void {
-  //   console.log('Post content:', this.postContent);
-  //   // Add your post logic here
-  // }
-
-  // createPost(){
-  //   if (!this.isPostButtonEnabled()) {
-  //     console.warn('Post content or images are required.');
-  //     return;
-  //   }
-  
-  //   // Prepare the PostCreateInput object
-  //   const postCreateInput: PostCreateInput = {
-  //     authorId: '12345', // Replace with the actual authorId from your logic
-  //     content: this.postContent.trim(),
-  //     images: [],//this.selectedFiles.map((file) => file.name),  Map file names or handle file uploads
-  //     videos: [], // Add logic for videos if needed
-  //   };
-  
-  //   // Prepare FormData for file upload
-  //   const formData = new FormData();
-  //   formData.append('content', postCreateInput.content);
-  //   formData.append('authorId', postCreateInput.authorId);
-  //   this.selectedFiles.forEach((file) => {
-  //     formData.append('images', file);
-  //   });
-  
-  //   // Call the createPost method from the PostService
-  //   this.postService.createPost(formData).subscribe({
-  //     next: (response) => {
-  //       console.log('Post created successfully:', response);
-  //       this.loadPosts(); // Refresh posts
-  //       this.resetPostForm(); // Clear the form
-  //     },
-  //     error: (error) => {
-  //       console.error('Error creating post:', error);
-  //     },
-  //   });
-  // }
-  resetPostForm(): void {
-    this.postContent = '';
-    this.imagePreviews = [];
-    this.selectedFiles = [];
-  }
   selectedPost: any;
 
   selectPost(post: any) {
@@ -138,83 +91,48 @@ export class PostsComponent {
     this.imagePreviews.splice(index, 1);
     console.log('Removed image at index:', index);
   }
-  // isPostButtonEnabled(): boolean {
-  //   // Enable if there's content or at least one image selected
-  //   return this.postContent.trim().length > 0 || this.imagePreviews.length > 0;
-  // }
-  onContentInput(event: Event): void {
-    const element = event.target as HTMLElement;
-    this.postContent = element.textContent || '';
-    console.log('Content updated:', this.postContent); // Debugging
-  }
-  // isFavorite: boolean = false;
 
-  // toggleFavorite() {
-  //   this.isFavorite = !this.isFavorite; // Toggle favorite state
+  // onContentInput(event: Event): void {
+  //   const element = event.target as HTMLElement;
+  //   this.postContent = element.textContent || '';
+  //   console.log('Content updated:', this.postContent); // Debugging
   // }
 
   // Check if the current user has liked the post
-//   isFavorite(postId: string): boolean {
-//     const post = this.posts.find(p => p.id === postId);
-//     const userId = 'currentUserId'; // This should be the actual ID of the current user
-//     return post?.likes.includes(userId) ?? false;
-// }
-
-// Toggle the favorite state of a post
-// toggleFavorite(postId: string): void {
-//     let post = this.posts.find(p => p.id === postId);
-//     const userId = 'currentUserId'; // Again, use the actual user ID
-//     if (post) {
-//         if (this.isFavorite(postId)) {
-//             post.likes = post.likes.filter(id => id !== userId); // Remove like
-//         } else {
-//             post.likes.push(userId); // Add like
-//         }
-//         // Assuming you have a method to update the post in the backend
-//         this.postService.updatePost(post).subscribe({
-//             next: updatedPost => {
-//                 const index = this.posts.findIndex(p => p.id === postId);
-//                 this.posts[index] = updatedPost;
-//             },
-//             error: err => console.error('Failed to update post:', err)
-//         });
-//     }
-// }
-// Check if the current user has liked the post
-isFavorite(postId: string, userId: string): boolean {
-  const post = this.posts.find((p) => p.id === postId);
-  return post?.likes?.includes(userId) ?? false;
-}
-
-// Toggle the favorite state of a post
-toggleFavorite(postId: string): void {
-  const userId = this.userId; // Dynamically use the current user's ID
-  const isFavorite = this.isFavorite(postId, userId);
-
-  if (isFavorite) {
-      // If already liked, remove the like
-      this.postService.deleteLike(postId, userId).subscribe({
-          next: (updatedPost) => {
-              const index = this.posts.findIndex((p) => p.id === postId);
-              if (index !== -1) {
-                  this.posts[index] = updatedPost; // Update the local posts array
-              }
-          },
-          error: (err) => console.error('Failed to remove like:', err),
-      });
-  } else {
-      // If not liked, add a like
-      this.postService.addLike(postId, userId).subscribe({
-          next: (updatedPost) => {
-              const index = this.posts.findIndex((p) => p.id === postId);
-              if (index !== -1) {
-                  this.posts[index] = updatedPost; // Update the local posts array
-              }
-          },
-          error: (err) => console.error('Failed to add like:', err),
-      });
+  isFavorite(postId: string, userId: string): boolean {
+    const post = this.posts.find((p) => p.id === postId);
+    return post?.likes?.includes(userId) ?? false;
   }
-}
+
+  // Toggle the favorite state of a post
+  toggleFavorite(postId: string): void {
+    const userId = this.userId; // Dynamically use the current user's ID
+    const isFavorite = this.isFavorite(postId, userId);
+
+    if (isFavorite) {
+        // If already liked, remove the like
+        this.postService.deleteLike(postId, userId).subscribe({
+            next: (updatedPost) => {
+                const index = this.posts.findIndex((p) => p.id === postId);
+                if (index !== -1) {
+                    this.posts[index] = updatedPost; // Update the local posts array
+                }
+            },
+            error: (err) => console.error('Failed to remove like:', err),
+        });
+    } else {
+        // If not liked, add a like
+        this.postService.addLike(postId, userId).subscribe({
+            next: (updatedPost) => {
+                const index = this.posts.findIndex((p) => p.id === postId);
+                if (index !== -1) {
+                    this.posts[index] = updatedPost; // Update the local posts array
+                }
+            },
+            error: (err) => console.error('Failed to add like:', err),
+        });
+    }
+  }
 
   // toggleCommentSection() {
   //   this.showCommentSection = !this.showCommentSection;
@@ -225,13 +143,158 @@ toggleFavorite(postId: string): void {
   //     this.newComment = ''; // Clear the input after submission
   //   }
   // }
-  editPost(post: PostResponseDto) {
-    // Handle edit post logic here
-    console.log('Editing post:', post);
+
+  // editPost(post: PostResponseDto): void {
+  //   const updatedContent = prompt('Edit your post content:', post.content);
+    
+  //   if (updatedContent !== null && updatedContent.trim() !== '') {
+  //     const postUpdateInput: PostUpdateInput = {
+  //       content: updatedContent.trim(),
+  //       imagePaths: post.imagePaths || [], // Provide an empty array if no images
+  //       videoPaths: post.videoPaths || []  // Provide an empty array if no videos
+  //     };
+  
+  //     this.postService.updatePost(post.id, postUpdateInput).subscribe({
+  //       next: (updatedPost) => {
+  //         console.log('Post updated successfully:', updatedPost);
+  
+  //         // Update the post in the local posts array
+  //         const index = this.posts.findIndex((p) => p.id === post.id);
+  //         if (index !== -1) {
+  //           this.posts[index] = updatedPost;
+  //         }
+  //       },
+  //       error: (err) => console.error('Error updating post:', err),
+  //     });
+  //   } else {
+  //     console.warn('Post update cancelled or invalid content.');
+  //   }
+  // }
+
+  deletePost(id: string): void {
+    if (confirm('Are you sure you want to delete this post?')) {
+      this.postService.deletePost(id).subscribe({
+        next: () => {
+          console.log('Post deleted successfully.');
+  
+          // Remove the deleted post from the local posts array
+          this.posts = this.posts.filter((post) => post.id !== id);
+        },
+        error: (err) => console.error('Error deleting post:', err),
+      });
+    } else {
+      console.log('Post deletion cancelled.');
+    }
+  }
+  
+  // Enable Post Button
+  isPostButtonEnabled(): boolean {
+    return this.postContent.trim().length > 0 || this.selectedFiles.length > 0;
   }
 
-  deletePost(id: String) {
-    // Handle delete post logic here
-    console.log('Deleting post:', id);
+  // Create a New Post
+  createPost(): void {
+    if (!this.isPostButtonEnabled()) {
+      console.warn('Post content or images are required.');
+      return;
+    }
+  
+    const formData = new FormData();
+    formData.append('authorId', this.userId);
+    formData.append('content', this.postContent.trim());
+    this.selectedFiles.forEach((file) => formData.append('images', file));
+  
+    this.postService.createPost(formData).subscribe({
+      next: (response) => {
+        console.log('Post created successfully:', response);
+        this.loadPosts(); // Refresh the posts list
+        this.resetPostForm(); // Clear the form inputs
+      },
+      error: (error) => {
+        console.error('Error creating post:', error);
+      },
+    });
   }
+  resetPostForm(): void {
+    this.postContent = '';
+    this.imagePreviews = [];
+    this.selectedFiles = [];
+  }
+
+//   isEditing: { [postId: string]: boolean } = {}; // Tracks editing state for each post
+// editedContent: { [postId: string]: string } = {}; // Holds the edited content for each post
+
+// Enable edit mode for a post
+enableEdit(post: PostResponseDto): void {
+  this.isEditing[post.id] = true;
+  this.editedContent[post.id] = post.content; // Initialize with current content
+}
+
+// Update the post using the backend
+// updatePost(post: PostResponseDto): void {
+//   const updatedContent = this.editedContent[post.id]?.trim();
+//   if (!updatedContent || updatedContent === post.content) {
+//     console.warn('No changes to update.');
+//     return;
+//   }
+
+//   const postUpdateInput: PostUpdateInput = {
+//     content: updatedContent,
+//     imagePaths: post.imageURLs || [], // Default empty if not provided
+//     videoPaths: post.videoURLs || [],
+//   };
+
+//   this.postService.updatePost(post.id, postUpdateInput).subscribe({
+//     next: (updatedPost) => {
+//       console.log('Post updated successfully:', updatedPost);
+
+//       // Update the post locally
+//       const index = this.posts.findIndex((p) => p.id === post.id);
+//       if (index !== -1) {
+//         this.posts[index] = updatedPost;
+//       }
+
+//       this.isEditing[post.id] = false; // Exit edit mode
+//     },
+//     error: (err) => console.error('Error updating post:', err),
+//   });
+// }
+updatePost(post: PostResponseDto): void {
+  const updatedContent = this.editedContent[post.id]?.trim();
+  if (!updatedContent || updatedContent === post.content) {
+    console.warn('No changes to update.');
+    return;
+  }
+
+  const postUpdateInput: PostUpdateInput = { content: updatedContent };
+
+  this.postService.updatePost(post.id, postUpdateInput).subscribe({
+    next: (updatedPost) => {
+      console.log('Post updated successfully:', updatedPost);
+
+      // Update the post locally
+      const index = this.posts.findIndex((p) => p.id === post.id);
+      if (index !== -1) {
+        this.posts[index] = updatedPost;
+      }
+
+      this.isEditing[post.id] = false; // Exit edit mode
+    },
+    error: (err) => console.error('Error updating post:', err),
+  });
+}
+onContentInput(event: Event, postId: string): void {
+  const target = event.target as HTMLElement; // Typecast EventTarget to HTMLElement
+  if (target && target.innerText !== null) {
+    this.editedContent[postId] = target.innerText;
+  }
+}
+
+// Cancel edit mode
+cancelEdit(postId: string): void {
+  this.isEditing[postId] = false;
+}
+isEditing: { [postId: string]: boolean } = {}; // Tracks editing state for each post
+editedContent: { [postId: string]: string } = {}; // Tracks the edited content
+
 }

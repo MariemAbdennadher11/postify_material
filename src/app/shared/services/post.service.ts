@@ -23,16 +23,10 @@ export class PostService {
     getPostById(postId: string): Observable<PostResponseDto> {
         return this.http.get<PostResponseDto>(`${this.baseUrl}/${postId}`);
     }
-
-    createPost(postCreateInput: PostCreateInput): Observable<PostResponseDto> {
-        const formData: FormData = new FormData();
-        formData.append('authorId', postCreateInput.authorId);
-        formData.append('content', postCreateInput.content);
-        postCreateInput.images.forEach(image => formData.append('images', image));
-        postCreateInput.videos.forEach(video => formData.append('videos', video));
-
+    createPost(formData: FormData): Observable<PostResponseDto> {
         return this.http.post<PostResponseDto>(`${this.baseUrl}/create`, formData);
     }
+      
       // Add a like to a post
     addLike(postId: string, userId: string): Observable<PostResponseDto> {
         return this.http.post<PostResponseDto>(`${this.baseUrl}/${postId}/like/${userId}`, {});

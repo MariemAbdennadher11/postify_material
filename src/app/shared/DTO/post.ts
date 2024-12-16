@@ -13,8 +13,11 @@ export interface PostResponseDto {
     videoURLs: string[];
     likes: string[]; // Assuming likes are represented as a list of user IDs or similar
 }
+// export interface PostUpdateInput {
+//     content: string;
+//     imagePaths?: string[];
+//     videoPaths?: string[];
+// }
 export interface PostUpdateInput {
     content: string;
-    imagePaths: string[];
-    videoPaths: string[];
 }
