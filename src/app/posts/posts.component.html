@@ -52,6 +52,7 @@
         <img src="assets/images/image.jpeg" class="avatar" />
         <div class="editable-content" 
              contenteditable="true" 
+             (input)="onCreateContentInput($event)"
              [innerText]="postContent"
              [attr.data-placeholder]="'What\'s on your mind?'">
         </div>
@@ -141,7 +142,7 @@
             <p *ngIf="isEditing[post.id]"
             
                 contenteditable="true"
-                (input)="onContentInput($event, post.id)"
+              (input)="onEditContentInput($event, post.id)"
                 [textContent]="editedContent[post.id]">
             </p>
             <!-- <div 

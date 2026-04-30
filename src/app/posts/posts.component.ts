@@ -100,6 +100,11 @@ export class PostsComponent {
     console.log('Removed image at index:', index);
   }
 
+  onCreateContentInput(event: Event): void {
+    const element = event.target as HTMLElement;
+    this.postContent = element.textContent || '';
+  }
+
   // onContentInput(event: Event): void {
   //   const element = event.target as HTMLElement;
   //   this.postContent = element.textContent || '';
@@ -293,7 +298,7 @@ updatePost(post: PostResponseDto): void {
     error: (err) => console.error('Error updating post:', err),
   });
 }
-onContentInput(event: Event, postId: string): void {
+onEditContentInput(event: Event, postId: string): void {
   const target = event.target as HTMLElement; // Typecast EventTarget to HTMLElement
   if (target && target.innerText !== null) {
     this.editedContent[postId] = target.innerText;
